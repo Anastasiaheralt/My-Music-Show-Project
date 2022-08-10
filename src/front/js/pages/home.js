@@ -10,7 +10,17 @@ export const Home = () => {
 
   return (
     <div>
-      <Carousel></Carousel>
+      <div className="container mt-5">
+        <Carousel></Carousel>
+      </div>
+      <div className="container-fluid my-4">
+        <Services></Services>
+      </div>
+
+      <div className="container-fluid my-4">
+        <Services></Services>
+      </div>
+
       <div className="container-fluid my-4">
         <Services></Services>
       </div>

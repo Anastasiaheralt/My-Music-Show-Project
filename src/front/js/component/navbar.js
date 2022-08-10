@@ -1,11 +1,10 @@
 import React from "react";
 import PLAY from "../../img/play.png";
-
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-md bg-light">
+    <nav class="navbar navbar-expand-md bg-light fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand text-dark" href="#">
           <img src={PLAY} alt="" width="40" />
