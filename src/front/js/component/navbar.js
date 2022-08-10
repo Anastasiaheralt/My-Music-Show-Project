@@ -1,4 +1,6 @@
 import React from "react";
+import PLAY from "../../img/play.png";
+
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
@@ -6,7 +8,8 @@ export const Navbar = () => {
     <nav class="navbar navbar-expand-md bg-light">
       <div class="container-fluid">
         <a class="navbar-brand text-dark" href="#">
-          My music show
+          <img src={PLAY} alt="" width="40" />
+          PlayEvent!
         </a>
         <button
           class="navbar-toggler text-dark"
