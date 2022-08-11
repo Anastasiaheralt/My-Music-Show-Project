@@ -1,17 +1,18 @@
 import React from "react";
+import "./navbar.css";
 import PLAY from "../../img/play.png";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-md bg-light fixed-top">
+    <nav class="navbar navbar-expand-md fixed-top colornav">
       <div class="container-fluid">
-        <a class="navbar-brand text-dark" href="#">
+        <a class="navbar-brand text-white fw-white" href="#">
           <img src={PLAY} alt="" width="40" />
-          PlayEvent!
+          <strong>MyMusicShow</strong>
         </a>
         <button
-          class="navbar-toggler text-dark"
+          class="navbar-toggler text-white"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarTogglerDemo02"
@@ -19,45 +20,31 @@ export const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="material-symbols-outlined">menu</span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle text-dark mx-5"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Proveedores
+          <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+            <li class="nav-item mx-3">
+              <a class="nav-link text-white fw-bolder" href="#">
+                Música
               </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item text-dark" href="#">
-                    Musica
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item text-dark" href="#">
-                    Fotografia y Video
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item text-dark" href="#">
-                    Locaciones
-                  </a>
-                </li>
-              </ul>
             </li>
-            <li class="nav-item"></li>
+            <li class="nav-item mx-3">
+              <a class="nav-link text-white fw-bolder" href="#">
+                Fotografía
+              </a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link text-white fw-bolder" href="#">
+                Locaciones
+              </a>
+            </li>
           </ul>
           <form class="d-flex" role="search">
-            <a class="nav-link text-dark" href="#">
+            <a class="nav-link text-white fw-bolder" href="#">
               Registrate
             </a>
-            <a class="nav-link text-dark" href="#">
+            <a class="nav-link text-white fw-bolder" href="#">
               Inicia sesion
             </a>
           </form>

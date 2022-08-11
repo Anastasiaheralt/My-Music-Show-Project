@@ -10,21 +10,20 @@ export const Home = () => {
 
   return (
     <div>
-      <div className="container mt-5">
-        <Carousel></Carousel>
-      </div>
-      <div className="container-fluid my-4">
-        <Services></Services>
-      </div>
+      <br />
+      <br />
+
+      <Carousel></Carousel>
 
       <div className="container-fluid my-4">
         <Services></Services>
       </div>
-
       <div className="container-fluid my-4">
         <Services></Services>
       </div>
-
+      <div className="container-fluid my-4">
+        <Services></Services>
+      </div>
       <div className="alert alert-info">
         {store.message ||
           "Loading message from the backend (make sure your python backend is running)..."}
