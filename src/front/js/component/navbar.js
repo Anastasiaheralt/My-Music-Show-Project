@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-md fixed-top colornav">
-      <div class="container-fluid">
-        <a class="navbar-brand text-white fw-white" href="#">
+    <nav className="navbar navbar-expand-md fixed-top">
+      <div className="container-fluid">
+        <a className="navbar-brand fw-bolder" href="#">
           <img src={PLAY} alt="" width="40" />
           <strong>MyMusicShow</strong>
         </a>
         <button
-          class="navbar-toggler text-white"
+          className="navbar-toggler "
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarTogglerDemo02"
@@ -20,31 +20,31 @@ export const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="material-symbols-outlined">menu</span>
+          <span className="material-symbols-outlined">menu</span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-1 mb-lg-0">
-            <li class="nav-item mx-3">
-              <a class="nav-link text-white fw-bolder" href="#">
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav me-auto mb-1 mb-lg-0">
+            <li className="nav-item mx-3">
+              <a className="nav-link text-white fw-bolder" href="#">
                 Música
               </a>
             </li>
-            <li class="nav-item mx-3">
-              <a class="nav-link text-white fw-bolder" href="#">
+            <li className="nav-item mx-3">
+              <a className="nav-link fw-bolder" href="#">
                 Fotografía
               </a>
             </li>
-            <li class="nav-item mx-3">
-              <a class="nav-link text-white fw-bolder" href="#">
+            <li className="nav-item mx-3">
+              <a className="nav-link fw-bolder" href="#">
                 Locaciones
               </a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <a class="nav-link text-white fw-bolder" href="#">
+          <form className="d-flex" role="search">
+            <a className="nav-link  fw-bolder" href="#">
               Registrate
             </a>
-            <a class="nav-link text-white fw-bolder" href="#">
+            <a className="nav-link  fw-bolder" href="#">
               Inicia sesion
             </a>
           </form>

@@ -10,9 +10,6 @@ export const Home = () => {
 
   return (
     <div>
-      <br />
-      <br />
-
       <Carousel></Carousel>
 
       <div className="container-fluid my-4">

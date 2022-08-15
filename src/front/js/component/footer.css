@@ -1,3 +1,7 @@
 .colorfooter {
   background-color: #2f8f9d;
 }
+
+a {
+  text-decoration: none;
+}
