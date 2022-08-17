@@ -1,15 +1,27 @@
 import React from "react";
 import "./navbar.css";
-import PLAY from "../../img/play.png";
+import LOGO from "../../img/LOGO.png";
+import { useScrollPosition } from "./../hooks/useScrollPosition";
+
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const scrollPosition = useScrollPosition();
+
   return (
-    <nav className="navbar navbar-expand-md fixed-top">
+    <nav
+      className={`navbar navbar-expand fixed-top
+    ${
+      scrollPosition > 200
+        ? "shadow-lg shadow-lg bg-dark bg-opacity-25"
+        : "bg-*"
+    }`}
+      id="navs"
+    >
       <div className="container-fluid">
-        <a className="navbar-brand fw-bolder" href="#">
-          <img src={PLAY} alt="" width="40" />
-          <strong>MyMusicShow</strong>
+        <a className="navbar-brand text-dark fw-bolder" href="#">
+          <img src={LOGO} alt="logom" width="50" />
+          My Music Show 🎶
         </a>
         <button
           className="navbar-toggler "
@@ -25,26 +37,31 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav me-auto mb-1 mb-lg-0">
             <li className="nav-item mx-3">
-              <a className="nav-link text-white fw-bolder" href="#">
+              <a className="nav-link text-dark fw-bolder" href="#">
                 Música
               </a>
             </li>
             <li className="nav-item mx-3">
-              <a className="nav-link fw-bolder" href="#">
+              <a className="nav-link text-dark fw-bolder" href="#">
                 Fotografía
               </a>
             </li>
             <li className="nav-item mx-3">
-              <a className="nav-link fw-bolder" href="#">
+              <a className="nav-link text-dark fw-bolder" href="#">
                 Locaciones
+              </a>
+            </li>
+            <li className="nav-item mx-3">
+              <a className="nav-link text-dark fw-bolder" href="#">
+                Catering
               </a>
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <a className="nav-link  fw-bolder" href="#">
+            <a className="nav-link text-dark fw-bolder" href="#">
               Registrate
             </a>
-            <a className="nav-link  fw-bolder" href="#">
+            <a className="nav-link text-dark fw-bolder" href="#">
               Inicia sesion
             </a>
           </form>

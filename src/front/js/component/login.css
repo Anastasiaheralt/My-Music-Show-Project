@@ -1,6 +1,9 @@
 .log1 {
-  background-color: #2f8f9d;
+  background-color: #2b4865;
 }
 .log2 {
   background-color: #b3e8e5;
+}
+#boton {
+  border-radius: 25px;
 }

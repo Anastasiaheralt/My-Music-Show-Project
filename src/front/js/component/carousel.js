@@ -1,5 +1,8 @@
 import React from "react";
-import CARO from "../../img/caro.jpg";
+import CARO1 from "../../img/CARO1.png";
+import CARO2 from "../../img/CARO2.png";
+import CARO3 from "../../img/CARO3.png";
+import CARO4 from "../../img/CARO4.png";
 
 export const Carousel = () => {
   return (
@@ -33,7 +36,9 @@ export const Carousel = () => {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={CARO} className="d-block w-100" alt="..." />
+            <div className="card">
+              <img src={CARO1} className="d-block w-100" alt="..." />
+            </div>
             <div className="carousel-caption d-none d-md-block">
               <h5>First slide label</h5>
               <p>
@@ -42,7 +47,7 @@ export const Carousel = () => {
             </div>
           </div>
           <div className="carousel-item">
-            <img src={CARO} className="d-block w-100" alt="..." />
+            <img src={CARO2} className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>
@@ -51,9 +56,18 @@ export const Carousel = () => {
             </div>
           </div>
           <div className="carousel-item">
-            <img src={CARO} className="d-block w-100" alt="..." />
+            <img src={CARO3} className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>
+              <p>
+                Some representative placeholder content for the third slide.
+              </p>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img src={CARO4} className="d-block w-100" alt="..." />
+            <div className="carousel-caption d-none d-md-block">
+              <h5>4th slide label</h5>
               <p>
                 Some representative placeholder content for the third slide.
               </p>
