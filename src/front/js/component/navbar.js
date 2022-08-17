@@ -11,11 +11,7 @@ export const Navbar = () => {
   return (
     <nav
       className={`navbar navbar-expand fixed-top
-    ${
-      scrollPosition > 200
-        ? "shadow-lg shadow-lg bg-dark bg-opacity-25"
-        : "bg-*"
-    }`}
+    ${scrollPosition > 200 ? "shadow-lg shadow-lg bg-light " : "bg-*"}`}
       id="navs"
     >
       <div className="container-fluid">
