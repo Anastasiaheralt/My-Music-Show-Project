@@ -3,5 +3,14 @@
 }
 
 .texto-borde {
-  font-family: "Pacifico", cursive;
+  font-size: 35px;
+  font-family: "Advent Pro", cursive;
+  font-weight: 500;
+  color: black;
+}
+.texto2 {
+  font-size: 25px;
+  font-family: "Advent Pro", cursive;
+  font-weight: 400;
+  color: black;
 }

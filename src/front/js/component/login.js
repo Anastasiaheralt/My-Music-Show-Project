@@ -2,6 +2,7 @@ import React from "react";
 import "./login.css";
 import LOGOR from "./../../img/LOGOR.png";
 import { Footer } from "./footer";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   return (
@@ -75,7 +76,7 @@ export const Login = () => {
 
             <div className="text-center">
               <p>
-                ¿Aún no eres miembro? <a href="#!">Regístrate</a>
+                ¿Aún no eres miembro? <Link to="/register">Regístrate</Link>
               </p>
               <p>tambien puedes acceder con:</p>
               <button type="button" className="btn btn-white btn-floating mx-1">

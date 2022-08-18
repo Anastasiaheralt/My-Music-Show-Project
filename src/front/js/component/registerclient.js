@@ -20,7 +20,7 @@ export const Registerclient = () => {
                         <input
                           type="text"
                           id="form3Example1c12"
-                          className="form-control"
+                          className="form-control borde"
                           placeholder="Nombre"
                         />
                       </div>
@@ -32,7 +32,7 @@ export const Registerclient = () => {
                         <input
                           type="email"
                           id="form3Example3c12"
-                          className="form-control"
+                          className="form-control borde"
                           placeholder="E-mail"
                         />
                       </div>
@@ -44,7 +44,7 @@ export const Registerclient = () => {
                         <input
                           type="password"
                           id="form3Example4c12"
-                          className="form-control"
+                          className="form-control borde"
                           placeholder="Contraseña"
                         />
                       </div>
@@ -56,7 +56,7 @@ export const Registerclient = () => {
                         <input
                           type="password"
                           id="form3Example4cd12"
-                          className="form-control"
+                          className="form-control borde"
                           placeholder="Repite la Contraseña"
                         />
                       </div>
@@ -64,7 +64,7 @@ export const Registerclient = () => {
 
                     <div className="form-check d-flex justify-content-center mb-5">
                       <input
-                        className="form-check-input me-2"
+                        className="form-check-input me-2 borde"
                         type="checkbox"
                         value=""
                         id="form2Example3c12"

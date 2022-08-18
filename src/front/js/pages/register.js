@@ -6,8 +6,9 @@ import { Registerprovider } from "../component/registerprovider";
 
 export const Register = () => {
   return (
-    <div className="container-fluid">
+    <>
       <Navbar />
+      <br />
       <br />
       <ul
         className="nav nav-tabs justify-content-center text-center mt-5"
@@ -16,7 +17,7 @@ export const Register = () => {
       >
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link active"
+            className="nav-link text-dark active"
             id="home-tab"
             data-bs-toggle="tab"
             data-bs-target="#home-tab-pane"
@@ -30,7 +31,7 @@ export const Register = () => {
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link"
+            className="nav-link text-dark"
             id="profile-tab"
             data-bs-toggle="tab"
             data-bs-target="#profile-tab-pane"
@@ -65,6 +66,6 @@ export const Register = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };

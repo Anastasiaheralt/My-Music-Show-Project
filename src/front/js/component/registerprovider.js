@@ -19,7 +19,7 @@ export const Registerprovider = () => {
                         <input
                           type="text"
                           id="form3Example1c1"
-                          className="form-control"
+                          className="form-control borde"
                           placeholder="Nombre o Razón Social"
                         />
                       </div>
@@ -31,7 +31,7 @@ export const Registerprovider = () => {
                         <input
                           type="email"
                           id="form3Example3c1"
-                          className="form-control"
+                          className="form-control borde"
                           placeholder="E-mail"
                         />
                       </div>
@@ -43,7 +43,7 @@ export const Registerprovider = () => {
                         <input
                           type="password"
                           id="form3Example4c1"
-                          className="form-control"
+                          className="form-control borde"
                           placeholder="Contraseña"
                         />
                       </div>
@@ -55,18 +55,18 @@ export const Registerprovider = () => {
                         <input
                           type="password"
                           id="form3Example4cd1"
-                          className="form-control"
+                          className="form-control borde"
                           placeholder="Repite la Contraseña"
                         />
                       </div>
                     </div>
 
                     <div className="d-flex flex-row align-items-center mb-4">
-                      <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <i className="fas fa-check fa-lg me-3 fa-fw"></i>
                       <div className="form-outline flex-fill mb-0">
                         <div className="input-group mb-3">
                           <select
-                            className="form-select"
+                            className="form-select borde"
                             id="inputGroupSelect01"
                           >
                             <option selected>Selecciona el Servicio...</option>
