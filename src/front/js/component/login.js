@@ -1,6 +1,5 @@
 import React from "react";
 import "./login.css";
-
 import LOGOR from "./../../img/LOGOR.png";
 import { Footer } from "./footer";
 

@@ -8,19 +8,23 @@ import "../../styles/home.css";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
+  const titleServices = ["Música", "Fotografía", "Locaciones", "Catering"];
 
   return (
     <div>
       <Navbar />
       <Carousel></Carousel>
       <div className="container-fluid my-4">
-        <Services></Services>
+        <Services titulo={titleServices[0]}></Services>
       </div>
       <div className="container-fluid my-4">
-        <Services></Services>
+        <Services titulo={titleServices[1]}></Services>
       </div>
       <div className="container-fluid my-4">
-        <Services></Services>
+        <Services titulo={titleServices[2]}></Services>
+      </div>
+      <div className="container-fluid my-4">
+        <Services titulo={titleServices[3]}></Services>
       </div>
       <div className="alert alert-info">
         {store.message ||

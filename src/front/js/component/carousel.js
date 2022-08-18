@@ -42,8 +42,8 @@ export const Carousel = () => {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <div className="card">
-              <img src={CARO1} className="d-block w-100" alt="..." />
+            <div className="card-image">
+              <img src={CARO1} className="d-block w-75 h-75" alt="1" />
             </div>
             <div className="carousel-caption d-none d-md-block">
               <h5>First slide label</h5>
@@ -53,7 +53,7 @@ export const Carousel = () => {
             </div>
           </div>
           <div className="carousel-item">
-            <img src={CARO2} className="d-block w-100" alt="..." />
+            <img src={CARO2} className="d-block w-75 h-75" alt="2" />
             <div className="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>
@@ -62,7 +62,7 @@ export const Carousel = () => {
             </div>
           </div>
           <div className="carousel-item">
-            <img src={CARO3} className="d-block w-100" alt="..." />
+            <img src={CARO3} className="d-block w-75 h-75" alt="3" />
             <div className="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>
               <p>
@@ -71,7 +71,7 @@ export const Carousel = () => {
             </div>
           </div>
           <div className="carousel-item">
-            <img src={CARO4} className="d-block w-100" alt="..." />
+            <img src={CARO4} className="d-block w-75 h-75" alt="4" />
             <div className="carousel-caption d-none d-md-block">
               <h5>4th slide label</h5>
               <p>
