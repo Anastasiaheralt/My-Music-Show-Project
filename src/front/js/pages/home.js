@@ -4,6 +4,7 @@ import { Services } from "./../component/services";
 import { Carousel } from "./../component/carousel";
 import { Navbar } from "./../component/navbar";
 import { Footer } from "./../component/footer";
+import { Conocenos } from "./../component/conocenos";
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -26,6 +27,7 @@ export const Home = () => {
         {store.message ||
           "Loading message from the backend (make sure your python backend is running)..."}
       </div>
+      <Conocenos />
       <Footer />
     </div>
   );
