@@ -1,4 +1,6 @@
 import React from "react";
+import "./register.css";
+import { Link } from "react-router-dom";
 
 export const Registerclient = () => {
   return (
@@ -9,9 +11,7 @@ export const Registerclient = () => {
             <div className="card-body p-md-5 border border-0">
               <div className="row justify-content-center">
                 <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                  <p className="text-center h1 fw-bold mb-2 mx-1 mx-md-2 mt-2">
-                    Registro para clientes
-                  </p>
+                  <h2 className="text-center mb-4">Registro para clientes</h2>
 
                   <form className="mx-1 mx-md-4">
                     <div className="d-flex flex-row align-items-center mb-4">
@@ -19,12 +19,10 @@ export const Registerclient = () => {
                       <div className="form-outline flex-fill mb-0">
                         <input
                           type="text"
-                          id="form3Example1c"
+                          id="form3Example1c12"
                           className="form-control"
+                          placeholder="Nombre"
                         />
-                        <label className="form-label" htmlFor="form3Example1c">
-                          Your Name
-                        </label>
                       </div>
                     </div>
 
@@ -33,12 +31,10 @@ export const Registerclient = () => {
                       <div className="form-outline flex-fill mb-0">
                         <input
                           type="email"
-                          id="form3Example3c"
+                          id="form3Example3c12"
                           className="form-control"
+                          placeholder="E-mail"
                         />
-                        <label className="form-label" htmlFor="form3Example3c">
-                          Your Email
-                        </label>
                       </div>
                     </div>
 
@@ -47,12 +43,10 @@ export const Registerclient = () => {
                       <div className="form-outline flex-fill mb-0">
                         <input
                           type="password"
-                          id="form3Example4c"
+                          id="form3Example4c12"
                           className="form-control"
+                          placeholder="Contraseña"
                         />
-                        <label className="form-label" htmlFor="form3Example4c">
-                          Password
-                        </label>
                       </div>
                     </div>
 
@@ -61,12 +55,10 @@ export const Registerclient = () => {
                       <div className="form-outline flex-fill mb-0">
                         <input
                           type="password"
-                          id="form3Example4cd"
+                          id="form3Example4cd12"
                           className="form-control"
+                          placeholder="Repite la Contraseña"
                         />
-                        <label className="form-label" htmlFor="form3Example4cd">
-                          Repeat your password
-                        </label>
                       </div>
                     </div>
 
@@ -75,20 +67,20 @@ export const Registerclient = () => {
                         className="form-check-input me-2"
                         type="checkbox"
                         value=""
-                        id="form2Example3c"
+                        id="form2Example3c12"
                       />
                       <label
                         className="form-check-label"
-                        htmlFor="form2Example3"
+                        htmlFor="form2Example32"
                       >
-                        I agree all statements in{" "}
-                        <a href="#!">Terms of service</a>
+                        Confirmo y acepto los
+                        <Link to="/terms"> Terminos y condiciones</Link>
                       </label>
                     </div>
 
                     <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" className="btn btn-primary btn-lg">
-                        Register
+                      <button type="button" className="btn btn-dark w-50 boton">
+                        Registrar
                       </button>
                     </div>
                   </form>

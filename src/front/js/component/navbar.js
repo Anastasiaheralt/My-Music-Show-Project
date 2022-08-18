@@ -10,7 +10,7 @@ export const Navbar = () => {
   return (
     <nav
       className={`navbar navbar-expand fixed-top
-    ${scrollPosition > 200 ? "shadow-lg shadow-lg bg-light " : "bg-*"}`}
+    ${scrollPosition > 100 ? "shadow-lg shadow-lg bg-light " : "bg-*"}`}
       id="navs"
     >
       <div className="container-fluid">
@@ -53,7 +53,7 @@ export const Navbar = () => {
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <Link className="nav-link text-dark fw-bolder" to="/">
+            <Link className="nav-link text-dark fw-bolder" to="/register">
               Registrate
             </Link>
             <Link className="nav-link text-dark fw-bolder" to="/login">
