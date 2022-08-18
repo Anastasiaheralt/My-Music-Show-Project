@@ -6,6 +6,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Login } from "./component/login";
+import { Register } from "./pages/register";
 
 import injectContext from "./store/appContext";
 
@@ -21,6 +22,7 @@ const Layout = () => {
         <ScrollToTop>
           <Routes>
             <Route element={<Login />} path="/login" />
+            <Route element={<Register />} path="/register" />
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />

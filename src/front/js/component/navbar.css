@@ -3,7 +3,5 @@
 }
 
 .texto-borde {
-  -webkit-text-stroke: 2px white;
-  color: black;
-  font-size: 30px;
+  font-family: "Pacifico", cursive;
 }
