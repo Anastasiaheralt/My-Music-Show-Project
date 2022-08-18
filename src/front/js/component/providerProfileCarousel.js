@@ -1,4 +1,8 @@
 import React from "react";
+import CARO1 from "../../img/CARO1.png";
+import CARO2 from "../../img/CARO2.png";
+import CARO3 from "../../img/CARO3.png";
+import CARO4 from "../../img/CARO4.png";
 
 export const ProviderProfileCarousel = (props) => {
   return (
@@ -32,13 +36,13 @@ export const ProviderProfileCarousel = (props) => {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={CARO} className="d-block w-100" alt="..." />
+            <img src={CARO1} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src={CARO} className="d-block w-100" alt="..." />
+            <img src={CARO2} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src={CARO} className="d-block w-100" alt="..." />
+            <img src={CARO3} className="d-block w-100" alt="..." />
           </div>
         </div>
         <button
