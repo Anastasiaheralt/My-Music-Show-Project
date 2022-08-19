@@ -1,23 +1,20 @@
 import React from "react";
 import { Footer } from "../component/footer";
-import { Navbar } from "../component/navbar";
 import { Registerclient } from "../component/registerclient";
 import { Registerprovider } from "../component/registerprovider";
+import "./../component/register.css";
 
 export const Register = () => {
   return (
     <>
-      <Navbar />
-      <br />
-      <br />
       <ul
-        className="nav nav-tabs justify-content-center text-center mt-5"
+        className="nav nav-tabs justify-content-center text-center bg-light mt-2"
         id="myTab"
         role="tablist"
       >
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link text-dark active"
+            className="nav-link active fuente "
             id="home-tab"
             data-bs-toggle="tab"
             data-bs-target="#home-tab-pane"
@@ -31,7 +28,7 @@ export const Register = () => {
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link text-dark"
+            className="nav-link fuente"
             id="profile-tab"
             data-bs-toggle="tab"
             data-bs-target="#profile-tab-pane"

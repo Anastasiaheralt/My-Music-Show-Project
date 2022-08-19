@@ -1,16 +1,22 @@
-#navs {
-  z-index: 200;
-}
-
 .texto-borde {
   font-size: 35px;
-  font-family: "Advent Pro", cursive;
+  font-family: "Ubuntu";
   font-weight: 500;
-  color: black;
+  color: white;
 }
 .texto2 {
   font-size: 25px;
-  font-family: "Advent Pro", cursive;
+  font-family: "Ubuntu", cursive;
   font-weight: 400;
-  color: black;
+  color: white;
+}
+.texto3 {
+  font-size: 20px;
+  font-family: "Ubuntu", cursive;
+  font-weight: 300;
+  color: white;
+}
+
+.colornav {
+  background-color: rgb(0, 0, 0, 0.7);
 }

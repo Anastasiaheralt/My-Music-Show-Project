@@ -9,8 +9,8 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand fixed-top
-    ${scrollPosition > 100 ? "shadow-lg shadow-lg bg-light " : "bg-*"}`}
+      className={`navbar navbar-expand-lg fixed-top
+    ${scrollPosition > 100 ? "shadow-lg shadow-lg colornav" : "bg-*"}`}
       id="navs"
     >
       <div className="container-fluid">
@@ -27,7 +27,7 @@ export const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="material-symbols-outlined">menu</span>
+          <span className="material-symbols-outlined text-white">menu</span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav me-auto mb-1 mb-lg-0">
@@ -55,10 +55,10 @@ export const Navbar = () => {
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <Link className="nav-link text-dark fw-bolder" to="/register">
+            <Link className="nav-link texto3" to="/register">
               Registrate
             </Link>
-            <Link className="nav-link text-dark fw-bolder" to="/login">
+            <Link className="nav-link texto3" to="/login">
               Inicia sesion
             </Link>
           </form>

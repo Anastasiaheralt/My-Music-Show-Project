@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Registerclient = () => {
   return (
     <>
-      <div className="row d-flex justify-content-center align-items-center h-75">
+      <div className="row d-flex justify-content-center align-items-center h-75 mb-5">
         <div className="col-lg-12 col-xl-11">
           <div className="card text-black border border-0">
             <div className="card-body p-md-5 border border-0">
