@@ -9,14 +9,14 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand fixed-top
-    ${scrollPosition > 200 ? "shadow-lg shadow-lg bg-light " : "bg-*"}`}
+      className={`navbar navbar-expand-lg fixed-top
+    ${scrollPosition > 100 ? "shadow-lg shadow-lg colornav" : "bg-*"}`}
       id="navs"
     >
       <div className="container-fluid">
         <Link className="navbar-brand texto-borde" to="/">
           <img src={LOGO} alt="logom" width="50" />
-          My Music Show 🎶
+          My Music Show
         </Link>
         <button
           className="navbar-toggler "
@@ -27,36 +27,38 @@ export const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="material-symbols-outlined">menu</span>
+          <span className="material-symbols-outlined text-white">menu</span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav me-auto mb-1 mb-lg-0">
             <li className="nav-item mx-3">
-              <Link className="nav-link text-dark fw-bolder" to="/">
-                Música
+              <Link className="nav-link texto2" to="/">
+                Música <span class="material-symbols-outlined">music_note</span>
               </Link>
             </li>
             <li className="nav-item mx-3">
-              <Link className="nav-link text-dark fw-bolder" to="/">
-                Fotografía
+              <Link className="nav-link texto2" to="/">
+                Fotografía{" "}
+                <span class="material-symbols-outlined">photo_camera</span>
               </Link>
             </li>
             <li className="nav-item mx-3">
-              <Link className="nav-link text-dark fw-bolder" to="/">
-                Locaciones
+              <Link className="nav-link texto2" to="/">
+                Locaciones{" "}
+                <span className="material-symbols-outlined">location_city</span>
               </Link>
             </li>
             <li className="nav-item mx-3">
-              <Link className="nav-link text-dark fw-bolder" to="/">
-                Catering
+              <Link className="nav-link texto2" to="/">
+                Catering <span class="material-symbols-outlined">tapas</span>
               </Link>
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <Link className="nav-link text-dark fw-bolder" to="/">
+            <Link className="nav-link texto3" to="/register">
               Registrate
             </Link>
-            <Link className="nav-link text-dark fw-bolder" to="/login">
+            <Link className="nav-link texto3" to="/login">
               Inicia sesion
             </Link>
           </form>

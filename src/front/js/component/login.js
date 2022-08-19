@@ -2,15 +2,16 @@ import React from "react";
 import "./login.css";
 import LOGOR from "./../../img/LOGOR.png";
 import { Footer } from "./footer";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   return (
     <>
       <div className="d-flex vh-100 w-100">
         <div className="col-6 log1 align-middle text-center">
-          <div className="align-middle mt-5">
+          <div className="align-middle mt-5" id="logo">
             <img
-              className="img-fluid pt-5"
+              className="img-fluid mt-3 pt-5 "
               src={LOGOR}
               height="400px"
               width="400px"
@@ -18,7 +19,7 @@ export const Login = () => {
           </div>
         </div>
 
-        <div className="col-6 log2 p-5">
+        <div className="col-6 log2 p-5 ">
           <div className="container-fluid text-center mt-5">
             <h1>LOGIN</h1>
           </div>
@@ -75,7 +76,7 @@ export const Login = () => {
 
             <div className="text-center">
               <p>
-                ¿Aún no eres miembro? <a href="#!">Regístrate</a>
+                ¿Aún no eres miembro? <Link to="/register">Regístrate</Link>
               </p>
               <p>tambien puedes acceder con:</p>
               <button type="button" className="btn btn-white btn-floating mx-1">
