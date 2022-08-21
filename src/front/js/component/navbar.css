@@ -5,16 +5,17 @@
   color: white;
 }
 .texto2 {
-  font-size: 25px;
+  font-size: 23px;
   font-family: "Ubuntu", cursive;
-  font-weight: 400;
+  font-weight: 200;
   color: white;
 }
 .texto3 {
-  font-size: 20px;
+  font-size: 17px;
   font-family: "Ubuntu", cursive;
   font-weight: 300;
   color: white;
+  text-decoration: none;
 }
 
 .colornav {
