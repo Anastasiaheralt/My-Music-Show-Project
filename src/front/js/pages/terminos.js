@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Footer } from "../component/footer";
-import { Navbar } from "../component/navbar";
 import "./../component/register.css";
 
 export const Terminos = () => {
@@ -9,7 +8,6 @@ export const Terminos = () => {
     <>
       <br />
       <br />
-      <Navbar />
       <div className="container-fluid ">
         <h3 className="mt-3 text-center">Terminos y Condiciones</h3>
         <p className="mx-4 p-5">
