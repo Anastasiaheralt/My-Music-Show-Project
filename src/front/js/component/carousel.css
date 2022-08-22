@@ -1,3 +1,5 @@
-.back {
-  background-color: #2b4865;
+.bc {
+  background-color: rgb(0, 0, 0, 0.3);
+  border-radius: 8px;
+  font-family: "Ubuntu", cursive;
 }
