@@ -20,3 +20,12 @@ def create_token():
 
     access_token = create_access_token(identity=email)
     return jsonify(access_token=access_token)
+
+@api.route('/hello', methods=['POST', 'GET'])
+def handle_hello():
+
+    response_body = {
+        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
+    }
+
+    return jsonify(response_body), 200

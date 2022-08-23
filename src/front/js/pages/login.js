@@ -23,7 +23,7 @@ export const Login = () => {
     <>
       <div className="d-flex vh-100 w-100">
         {store.token && store.token != "" && store.token != undefined ? (
-          navigate("/") //no regresa al landing revisar
+          navigate("/")
         ) : (
           <>
             <div className="col-6 log1 align-middle text-center">
