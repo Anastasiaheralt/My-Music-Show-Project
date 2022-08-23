@@ -13,7 +13,7 @@ export const Login = () => {
 
   const handleClick = () => {
     actions.login(email, password);
-    navigate("/"); // no funciona preguntar
+    navigate("/");
   };
 
   if (store.token && store.token != "" && store.token != undefined)
@@ -77,6 +77,9 @@ export const Login = () => {
                         value=""
                         id="form2Example31"
                         checked
+                        onChange={() => {
+                          console.log("no dio tiempo ivan");
+                        }}
                       />
                       <label
                         className="form-check-label"
