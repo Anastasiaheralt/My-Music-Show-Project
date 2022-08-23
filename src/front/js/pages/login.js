@@ -77,6 +77,9 @@ export const Login = () => {
                         value=""
                         id="form2Example31"
                         checked
+                        onChange={() => {
+                          console.log("no dio tiempo ivan");
+                        }}
                       />
                       <label
                         className="form-check-label"
