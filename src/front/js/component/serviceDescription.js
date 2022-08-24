@@ -7,6 +7,9 @@ import { useState } from "react";
 
 export const ServiceDescription = () => {
   const [show, setShow] = useState(false);
+  /*function handleAction (event) {
+    return setshow = false;
+  }*/
   return (
     <>
       <div className="container-fluid mt-3">
@@ -27,7 +30,7 @@ export const ServiceDescription = () => {
           Contratar servicio
         </button>
       </div>
-      <AddToCartModal on={show} />
+      <AddToCartModal on={show} /*onAction = {handleAction}*/ />
     </>
   );
 };

@@ -29,3 +29,37 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+    #creando aca las variables para user y proveedor, para luego definir las rutas 
+
+    users = [ { "name": "example", "email" : "emailExample" } ]
+    providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
+
+    @app.route('/providers', methods=['GET'])
+    def get_providers ():
+    return jsonify(providers)
+
+    @app.route('/user_register', methods=['POST'])
+    def add_new_user():
+    request_body = request.data
+    decoded_object = json.loads(request_body)
+    user_register.append(decoded_object)
+    print("Incoming request with the following body", request_body)
+    return jsonify(users)
+
+    @app.route('/provider_register', methods=['POST'])
+    def add_new_provider():
+    request_body = request.data
+    decoded_object = json.loads(request_body)
+    provider_register.append(decoded_object)
+    print("Incoming request with the following body", request_body)
+    return jsonify(providers)
+
+    @app.route('/providers/<int:position>', methods=['GET'])
+    def get_provider_by_id ():
+    return jsonify(providers)
+
+    @app.route('/login', methods=['GET'])
+    def get_login ():
+    return jsonify(providers)
+    #SamuelAYUDAAAAAAA
