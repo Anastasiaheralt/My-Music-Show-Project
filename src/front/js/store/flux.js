@@ -74,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         try {
           // fetching data from the backend
           const resp = await fetch(
-            "https://3001-jechf-proyectofinal-kayqvlrtxml.ws-us62.gitpod.io/api/hello",
+            "https://3001-jechf-proyectofinal-kayqvlrtxml.ws-us63.gitpod.io/api/hello",
             opts
           );
           const data = await resp.json();
