@@ -101,3 +101,11 @@ This boilerplate it's 100% integrated with Herkou, [follow this tutorial](https:
 
 npm install react-bootstrap bootstrap
 pipenv install flask-jwt-extended
+
+Cuando hay problemas con la migración:
+
+Borrar carpeta de migracinón
+pipenv run init
+pipenv run migrate
+pipenv run upgrade
+pipenv run start
