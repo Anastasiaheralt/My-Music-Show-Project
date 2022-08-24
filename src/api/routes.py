@@ -21,19 +21,20 @@ def create_token():
     access_token = create_access_token(identity=email)
     return jsonify(access_token=access_token)
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
-
+@api.route('/hello', methods=['GET'])
+@jwt_required()
+def get_hello():
+    email = get_jwt_identity()
     response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
+        "message": "Hello!" + email
     }
 
     return jsonify(response_body), 200
 
     #creando aca las variables para user y proveedor, para luego definir las rutas 
 
-    users = [ { "name": "example", "email" : "emailExample" } ]
-    providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
+#     users = [ { "name": "example", "email" : "emailExample" } ]
+#     providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
 
 @api.route('/providers', methods=['GET'])
 def get_providers ():
