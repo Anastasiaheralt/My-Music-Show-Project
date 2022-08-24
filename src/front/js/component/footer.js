@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import VZLA from "../../img/venezuela.png";
-import LOGO from "../../img/LOGO.png";
+import LOGO2 from "../../img/LOGO2.png";
 import "./footer.css";
 
 export const Footer = () => {
@@ -91,7 +91,7 @@ export const Footer = () => {
               </div>
             </div>
             <div className="col-md-2 col-lg-2 text-center text-md-start">
-              <img src={LOGO} height="60px" />
+              <img src={LOGO2} height="80px" />
             </div>
             <div className="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
               <a
