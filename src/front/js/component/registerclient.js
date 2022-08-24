@@ -1,8 +1,21 @@
 import React from "react";
-import "./register.css";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import "./register.css";
 
 export const Registerclient = () => {
+  const {
+    register,
+    watch,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  const activarRegistro = watch("aceptarterminos");
   return (
     <>
       <div className="row d-flex justify-content-center align-items-center h-75 mb-5">
@@ -13,7 +26,10 @@ export const Registerclient = () => {
                 <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                   <h2 className="text-center mb-4">Registro para clientes</h2>
 
-                  <form className="mx-1 mx-md-4">
+                  <form
+                    className="mx-1 mx-md-4"
+                    onSubmit={handleSubmit(onSubmit)}
+                  >
                     <div className="d-flex flex-row align-items-center mb-4">
                       <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div className="form-outline flex-fill mb-0">
@@ -22,7 +38,13 @@ export const Registerclient = () => {
                           id="form3Example1c12"
                           className="form-control borde"
                           placeholder="Nombre"
+                          {...register("nombre", { required: true })}
                         />
+                        {errors.nombre?.type === "required" && (
+                          <p className="text-danger mx-auto">
+                            El campo Nombre es requerido
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -34,7 +56,17 @@ export const Registerclient = () => {
                           id="form3Example3c12"
                           className="form-control borde"
                           placeholder="E-mail"
+                          {...register("correo", {
+                            required: true,
+                            pattern:
+                              /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
+                          })}
                         />
+                        {errors.correo?.type === "required" && (
+                          <p className="text-danger mx-auto">
+                            El campo Email es requerido
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -46,7 +78,21 @@ export const Registerclient = () => {
                           id="form3Example4c12"
                           className="form-control borde"
                           placeholder="Contraseña"
+                          {...register("password", {
+                            required: true,
+                            minLength: 8,
+                          })}
                         />
+                        {errors.password?.type === "required" && (
+                          <p className="text-danger mx-auto">
+                            Ingresa una contraseña
+                          </p>
+                        )}
+                        {errors.password?.type === "minLength" && (
+                          <p className="text-danger mx-auto">
+                            La contraseña debe tener un minimo de 8 caracteres
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -58,7 +104,21 @@ export const Registerclient = () => {
                           id="form3Example4cd12"
                           className="form-control borde"
                           placeholder="Repite la Contraseña"
+                          {...register("repeatpass", {
+                            required: true,
+                            minLength: 8,
+                          })}
                         />
+                        {errors.repeatpass?.type === "required" && (
+                          <p className="text-danger mx-auto">
+                            Ingresa una contraseña
+                          </p>
+                        )}
+                        {errors.repeatpass?.type === "minLength" && (
+                          <p className="text-danger mx-auto">
+                            La contraseña debe tener un minimo de 8 caracteres
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -66,8 +126,8 @@ export const Registerclient = () => {
                       <input
                         className="form-check-input me-2 borde"
                         type="checkbox"
-                        value=""
                         id="form2Example3c12"
+                        {...register("aceptarterminos")}
                       />
                       <label
                         className="form-check-label"
@@ -77,12 +137,16 @@ export const Registerclient = () => {
                         <Link to="/terms"> Terminos y condiciones</Link>
                       </label>
                     </div>
-
-                    <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" className="btn btn-dark w-50 boton">
-                        Registrar
-                      </button>
-                    </div>
+                    {activarRegistro && (
+                      <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <button
+                          type="submit"
+                          className="btn btn-dark w-50 boton"
+                        >
+                          Registrar
+                        </button>
+                      </div>
+                    )}
                   </form>
                 </div>
                 <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
