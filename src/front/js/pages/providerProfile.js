@@ -5,6 +5,8 @@ import { ServiceDescription } from "../component/serviceDescription";
 import { UserFeedback } from "../component/userFeedback";
 import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 export const ProviderProfile = () => {
   return (
