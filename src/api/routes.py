@@ -21,45 +21,46 @@ def create_token():
     access_token = create_access_token(identity=email)
     return jsonify(access_token=access_token)
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
-
+@api.route('/hello', methods=['GET'])
+@jwt_required()
+def get_hello():
+    email = get_jwt_identity()
     response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
+        "message": "Hello!" + email
     }
 
     return jsonify(response_body), 200
 
     #creando aca las variables para user y proveedor, para luego definir las rutas 
 
-    users = [ { "name": "example", "email" : "emailExample" } ]
-    providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
+#     users = [ { "name": "example", "email" : "emailExample" } ]
+#     providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
 
-@app.route('/providers', methods=['GET'])
-def get_providers ():
-    return jsonify(providers)
+# @app.route('/providers', methods=['GET'])
+# def get_providers ():
+#     return jsonify(providers)
 
-@app.route('/user_register', methods=['POST'])
-def add_new_user():
-    request_body = request.data
-    decoded_object = json.loads(request_body)
-    user_register.append(decoded_object)
-    print("Incoming request with the following body", request_body)
-    return jsonify(users)
+# @app.route('/user_register', methods=['POST'])
+# def add_new_user():
+#     request_body = request.data
+#     decoded_object = json.loads(request_body)
+#     user_register.append(decoded_object)
+#     print("Incoming request with the following body", request_body)
+#     return jsonify(users)
 
-@app.route('/provider_register', methods=['POST'])
-def add_new_provider():
-    request_body = request.data
-    decoded_object = json.loads(request_body)
-    provider_register.append(decoded_object)
-    print("Incoming request with the following body", request_body)
-    return jsonify(providers)
+# @app.route('/provider_register', methods=['POST'])
+# def add_new_provider():
+#     request_body = request.data
+#     decoded_object = json.loads(request_body)
+#     provider_register.append(decoded_object)
+#     print("Incoming request with the following body", request_body)
+#     return jsonify(providers)
 
-@app.route('/providers/<int:position>', methods=['GET'])
-def get_provider_by_id ():
-    return jsonify(providers)
+# @app.route('/providers/<int:position>', methods=['GET'])
+# def get_provider_by_id ():
+#     return jsonify(providers)
 
-@app.route('/login', methods=['GET'])
-def get_login ():
-    return jsonify(providers)
-    #SamuelAYUDAAAAAAA
+# @app.route('/login', methods=['GET'])
+# def get_login ():
+#     return jsonify(providers)
+#     #SamuelAYUDAAAAAAA
