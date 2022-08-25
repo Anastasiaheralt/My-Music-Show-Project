@@ -8,6 +8,21 @@ class User(db.Model):
     name = db.Column(db.String(120), nullable=False)
     # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
+#creo acá una funcion que me permita guardar un nuevo usuario en la db. 
+@classmethod
+def new_user(cls, name, email):
+    new_user = cls(name, email)
+    db.session.add(new_user)
+    try:
+        db.session.commit()
+        return new_user
+    except Exception as error:
+        print(error)
+        return None
+
+#EN el repo del diario, el code de main debe ir en routes en este proyecto. 
+#Mirar el classmethods del diairo y de las entradas
+
     def __repr__(self):
         return f'<User {self.email}>'
 

@@ -42,11 +42,22 @@ def get_providers ():
 
 @api.route('/user_register', methods=['POST'])
 def add_new_user():
-    request_body = request.data
-    decoded_object = json.loads(request_body)
-    user_register.append(decoded_object)
-    print("Incoming request with the following body", request_body)
-    return jsonify(users)
+    body = request.json
+    if "name" not in body:
+        return 'No tiene nombre!', 400
+    if "email" not in body:
+        return 'No tiene correo!', 400
+    else:
+        new_row = User.new_user(body["name"], body["email"])
+        if new_row == None:
+            return 'Un error ha ocurrid al intentar tu registro', 500
+        else:
+            return jsonify(new_row.serialize()), 200
+    # request_body = request.data
+    # decoded_object = json.loads(request_body)
+    # user_register.append(decoded_object)
+    # print("Incoming request with the following body", request_body)
+    # return jsonify(users)
 
 @api.route('/provider_register', methods=['POST'])
 def add_new_provider():

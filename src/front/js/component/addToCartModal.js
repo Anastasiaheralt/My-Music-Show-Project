@@ -6,10 +6,10 @@ import { useState } from "react";
 
 export const AddToCartModal = (props) => {
   const [hide, setHide] = useState("");
-  const handleClose = () => {
+ /* const handleClose = () => {
     setHide(true);
     props.on = false;
-  };
+  };*/
   return (
     <Modal show={props.on} onHide={hide}>
       <Modal.Header closeButton onClick={handleClose}>
@@ -23,7 +23,7 @@ export const AddToCartModal = (props) => {
       <Modal.Footer>
         {/* Crear acá en el botón el setter para que cambie el state de la propiedad show */}
         <Button
-          onClick={handleClose} /*{() => setHide(true)}*/ variant="secondary">
+          onClick={props.onAction()} /*{() => setHide(true)}*/ variant="secondary">
           Close
         </Button>
         <Button variant="primary">Save changes</Button>
