@@ -1,3 +1,9 @@
 .boton {
   border-radius: 25px;
 }
+
+.textfont {
+  font-family: "Ubuntu", cursive;
+  font-weight: 300;
+  color: black;
+}
