@@ -7,7 +7,7 @@ import { useState } from "react";
 import "./services.css";
 export const ServiceDescription = () => {
   const [show, setShow] = useState(false);
-  function handleAction (event) {
+  function handleAction(event) {
     setShow(!show);
   }
   return (
@@ -24,7 +24,7 @@ export const ServiceDescription = () => {
           Contratar servicio
         </button>
       </div>
-      <AddToCartModal on={show} onAction={handleAction} />
+      {/* <AddToCartModal on={show} onAction={handleAction} /> */}
     </>
   );
 };
