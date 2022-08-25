@@ -5,3 +5,18 @@
 a {
   text-decoration: none;
 }
+
+.textf {
+  font-size: 20px;
+  font-family: "Ubuntu";
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+}
+.texto33 {
+  font-size: 17px;
+  font-family: "Ubuntu", cursive;
+  font-weight: 300;
+  color: white;
+  text-decoration: none;
+}

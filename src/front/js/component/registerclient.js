@@ -1,9 +1,12 @@
 import React from "react";
+import { Context } from "../store/appContext";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 
 export const Registerclient = () => {
+  const navigate = useNavigate();
+  const { store, actions } = useContext(Context);
   const {
     register,
     watch,
@@ -11,8 +14,9 @@ export const Registerclient = () => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
+    actions.addregister(data);
+    navigate("/");
   };
 
   const activarRegistro = watch("aceptarterminos");
