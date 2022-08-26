@@ -7,9 +7,7 @@ import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-// import "../../styles/home.css";
 import "./providerProfile.css";
-import { Registerclient } from "../component/registerclient";
 import { Presupuesto } from "./presupuesto";
 
 export const ProviderProfile = () => {

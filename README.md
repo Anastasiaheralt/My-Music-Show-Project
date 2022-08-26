@@ -97,3 +97,15 @@ To update with all yours tables you can edit the file app.py and go to the line 
 ## Publish your website!
 
 This boilerplate it's 100% integrated with Herkou, [follow this tutorial](https://start.4geeksacademy.com/backend/deploy-heroku-posgres) and just by pushing your changes to the heroku repository will deploy the website afterwards.
+
+
+npm install react-bootstrap bootstrap
+pipenv install flask-jwt-extended
+
+Cuando hay problemas con la migración:
+
+Borrar carpeta de migracinón
+pipenv run init
+pipenv run migrate
+pipenv run upgrade
+pipenv run start
