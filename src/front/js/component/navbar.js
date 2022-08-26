@@ -78,9 +78,12 @@ export const Navbar = () => {
               </>
             ) : (
               <>
-                <Link className="btn btn-link texto3" to="/userPage">
+                <Link className="btn btn-link texto3 " to="/userPage">
                   Mi Perfil
                 </Link>
+                <span class="material-symbols-outlined text-white pt-2 ">
+                  account_circle
+                </span>
                 <button
                   className="btn btn-link texto3"
                   onClick={() => actions.logout()}

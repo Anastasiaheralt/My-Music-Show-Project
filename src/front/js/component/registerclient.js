@@ -7,6 +7,7 @@ import "./register.css";
 export const Registerclient = () => {
   const navigate = useNavigate();
   const { store, actions } = useContext(Context);
+
   const {
     register,
     watch,
