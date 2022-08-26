@@ -67,20 +67,27 @@ export const Navbar = () => {
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <Link className="nav-link texto3" to="/register">
-              Registrate
-            </Link>
             {!store.token ? (
-              <Link className="nav-link texto3 align-middle" to="/login">
-                Inicia sesión
-              </Link>
+              <>
+                <Link className="nav-link texto3" to="/register">
+                  Registrate
+                </Link>
+                <Link className="nav-link texto3 align-middle" to="/login">
+                  Inicia sesión
+                </Link>
+              </>
             ) : (
-              <button
-                className="btn btn-link texto3"
-                onClick={() => actions.logout()}
-              >
-                Cerrar sesión
-              </button>
+              <>
+                <Link className="btn btn-link texto3" to="/userPage">
+                  Mi Perfil
+                </Link>
+                <button
+                  className="btn btn-link texto3"
+                  onClick={() => actions.logout()}
+                >
+                  Cerrar sesión
+                </button>
+              </>
             )}
           </form>
         </div>
