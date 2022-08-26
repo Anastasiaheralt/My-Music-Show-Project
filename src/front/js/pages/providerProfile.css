@@ -1,0 +1,13 @@
+.bgdeg {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.textfont1 {
+  font-family: "Ubuntu", cursive;
+  font-weight: 300;
+  color: black;
+}
+
+.btbr {
+  border-radius: 35px;
+}

@@ -63,10 +63,43 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      getMessage: async () => {
+      addregister: async () => {
+        const opts = {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + store.token,
+          },
+          body: JSON.stringify({}),
+        };
         try {
           // fetching data from the backend
-          const resp = await fetch(process.env.BACKEND_URL + "/api/hello");
+          const resp = await fetch(
+            "https://3001-jechf-proyectofinal-kayqvlrtxml.ws-us63.gitpod.io/api/",
+            opts
+          );
+          const data = await resp.json();
+          setStore({ message: data.message });
+          // don't forget to return something, that is how the async resolves
+          return data;
+        } catch (error) {
+          console.log("Error loading message from backend", error);
+        }
+      },
+
+      getMessage: async () => {
+        const store = getStore();
+        const opts = {
+          headers: {
+            Authorization: "Bearer " + store.token,
+          },
+        };
+
+        try {
+          // fetching data from the backend
+          const resp = await fetch(
+            "https://3001-jechf-proyectofinal-kayqvlrtxml.ws-us63.gitpod.io/api/hello",
+            opts
+          );
           const data = await resp.json();
           setStore({ message: data.message });
           // don't forget to return something, that is how the async resolves

@@ -5,31 +5,39 @@ import { ServiceDescription } from "../component/serviceDescription";
 import { UserFeedback } from "../component/userFeedback";
 import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import "../../styles/home.css";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+// import "../../styles/home.css";
+import "./providerProfile.css";
+import { Registerclient } from "../component/registerclient";
+import { Presupuesto } from "./presupuesto";
 
 export const ProviderProfile = () => {
   return (
-    <div>
-      <br />
-      <br />
-      <Navbar />
-      <div className="container-fluid my-4">
-        <div className="row">
-          <div className="col-10">
-            <h1>Juan Juancin</h1>
-            <div className="container-fluid my-4">
-              <div className="row">
-                <div className="col-6">
-                <p className="text">Costos pueden ir entre 200$ - 300$</p>
-                </div>
-                <div className="col-2">
+    <>
+      <div className="container-fluid bgdeg p-1">
+        <br />
+        <br />
+        <br />
+        <Navbar />
+      </div>
+
+      <div className="row m-3">
+        <div className="col-8 textfont1">
+          <h1>Hotel Humboldt</h1>
+          <div className="container-fluid my-4">
+            <div className="row">
+              <div className="col-6">
+                <p className="text">
+                  Costo: <strong className="text-success">600$ - 2000$</strong>{" "}
+                </p>
+              </div>
+              {/* <div className="col-2">
                 <div className="alert alert-info" role="alert">
                   Este proveedor tiene descuento, <br></br>¡aprovecha!
                 </div>
-                </div>
-                <div className="col-2">
+              </div> */}
+              <div className="col-2">
                 <div className="form-check">
                   <input
                     className="form-check-input"
@@ -41,20 +49,26 @@ export const ProviderProfile = () => {
                     className="form-check-label"
                     htmlFor="flexCheckDefault"
                   >
-                    Agregar a proveedores favoritos
+                    Favorito
                   </label>
                 </div>
-                </div>
               </div>
-              <ProviderProfileCarousel></ProviderProfileCarousel>
-              <ServiceDescription></ServiceDescription>
-              <UserFeedback></UserFeedback>
             </div>
+            <ProviderProfileCarousel></ProviderProfileCarousel>
+            <ServiceDescription></ServiceDescription>
+            <UserFeedback></UserFeedback>
           </div>
-          <div className="col-4"></div>
+        </div>
+        <div className="col-4 justify-content-center">
+          <br />
+          <br />
+          <br /> <br />
+          <br />
+          <Presupuesto />
         </div>
       </div>
+
       <Footer />
-    </div>
+    </>
   );
 };

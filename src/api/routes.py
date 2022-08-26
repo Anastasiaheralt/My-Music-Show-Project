@@ -21,19 +21,20 @@ def create_token():
     access_token = create_access_token(identity=email)
     return jsonify(access_token=access_token)
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
-
+@api.route('/hello', methods=['GET'])
+@jwt_required()
+def get_hello():
+    email = get_jwt_identity()
     response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
+        "message": "Hello!" + email
     }
 
     return jsonify(response_body), 200
 
     #creando aca las variables para user y proveedor, para luego definir las rutas 
 
-    users = [ { "name": "example", "email" : "emailExample" } ]
-    providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
+#     users = [ { "name": "example", "email" : "emailExample" } ]
+#     providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
 
 @api.route('/providers', methods=['GET'])
 def get_providers ():
@@ -41,11 +42,22 @@ def get_providers ():
 
 @api.route('/user_register', methods=['POST'])
 def add_new_user():
-    request_body = request.data
-    decoded_object = json.loads(request_body)
-    user_register.append(decoded_object)
-    print("Incoming request with the following body", request_body)
-    return jsonify(users)
+    body = request.json
+    if "name" not in body:
+        return 'No tiene nombre!', 400
+    if "email" not in body:
+        return 'No tiene correo!', 400
+    else:
+        new_row = User.new_user(body["name"], body["email"])
+        if new_row == None:
+            return 'Un error ha ocurrid al intentar tu registro', 500
+        else:
+            return jsonify(new_row.serialize()), 200
+    # request_body = request.data
+    # decoded_object = json.loads(request_body)
+    # user_register.append(decoded_object)
+    # print("Incoming request with the following body", request_body)
+    # return jsonify(users)
 
 @api.route('/provider_register', methods=['POST'])
 def add_new_provider():

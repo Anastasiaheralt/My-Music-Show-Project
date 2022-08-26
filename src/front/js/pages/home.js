@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Services } from "./../component/services";
 import { Carousel } from "./../component/carousel";
@@ -30,6 +30,11 @@ export const Home = () => {
     "Hotel Humboldt",
     "Bora La Mar",
   ];
+
+  useEffect(() => {
+    if (store.token && store.token != "" && store.token != undefined)
+      actions.getMessage();
+  }, [store.token]);
 
   return (
     <div>
@@ -74,8 +79,7 @@ export const Home = () => {
         ></Services>
       </div>
       <div className="alert alert-info">
-        {store.message ||
-          "Loading message from the backend (make sure your python backend is running)..."}
+        {store.message || "inicia sesion para ver el mensaje del backend"}
       </div>
       <Conocenos />
       <Footer />
