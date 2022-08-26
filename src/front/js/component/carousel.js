@@ -4,13 +4,15 @@ import CARO2 from "../../img/CARO2.png";
 import CARO3 from "../../img/CARO3.png";
 import CARO4 from "../../img/CARO4.png";
 import "./carousel.css";
+
 export const Carousel = () => {
   return (
     <>
       <div
         id="carouselExampleCaptions"
-        className="carousel slide"
-        data-bs-ride="false"
+        className="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+        data-bs-interval="2000"
       >
         <div className="carousel-indicators">
           <button
@@ -43,7 +45,7 @@ export const Carousel = () => {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <div className="card-image">
-              <img src={CARO1} className="w-100" alt="1" />
+              <img src={CARO1} className="w-100 qlq" alt="1" />
             </div>
             <div className="carousel-caption bc d-none d-md-block">
               <h1>Todo lo que necesitas</h1>
