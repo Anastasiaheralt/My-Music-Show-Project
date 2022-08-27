@@ -30,7 +30,7 @@ export const ProfileData = () => {
                 placeholder="Disabled input"
               />
             </div>
-            <div class="mb-3">
+            <div className="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
                 Correo electronico
               </label>
@@ -41,9 +41,9 @@ export const ProfileData = () => {
                 placeholder="Disabled input"
               />
             </div>
-            <div class="mb-3">
+            <div className="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
-                Contrasena
+                Contraseña
               </label>
               <input
                 type="text"
@@ -56,14 +56,35 @@ export const ProfileData = () => {
         </form>
       </div>
       <div className="col-6 m-3 p-3">
-        <div className="card">
-          <ul>
-            <h5>Eventos Contratados</h5>
-            <li>Eventos 1: Boda real lo que sea</li>
-            <li>Eventos 2: Boda real lo que sea</li>
-            <li>Eventos 3: Boda real lo que sea</li>
-            <li>Eventos 4: Boda real lo que sea</li>
-          </ul>
+        <div className="list-group">
+          <a
+            href="#"
+            className="list-group-item list-group-item-action active"
+            aria-current="true"
+          >
+            <div className="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Evento contatado</h5>
+              <small>3 days ago</small>
+            </div>
+            <p className="mb-1">Boda real</p>
+            <small>Fotografía Studio.</small>
+          </a>
+          <a href="#" className="list-group-item list-group-item-action">
+            <div className="d-flex w-100 justify-content-between">
+              <h5 className="mb-1">Evento contratado</h5>
+              <small classNme="text-muted">21 days ago</small>
+            </div>
+            <p className="mb-1">Grduación Medicina ULA.</p>
+            <small className="text-muted">Dj Ann.</small>
+          </a>
+          <a href="#" className="list-group-item list-group-item-action">
+            <div className="d-flex w-100 justify-content-between">
+              <h5 className="mb-1">Evento contratado</h5>
+              <small className="text-muted">1 month ago</small>
+            </div>
+            <p className="mb-1">Inauguración centro comercial</p>
+            <small className="text-muted">Catering snacks.</small>
+          </a>
         </div>
       </div>
     </div>
