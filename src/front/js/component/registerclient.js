@@ -102,32 +102,6 @@ export const Registerclient = () => {
                       </div>
                     </div>
 
-                    <div className="d-flex flex-row align-items-center mb-4">
-                      <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                      <div className="form-outline flex-fill mb-0">
-                        <input
-                          type="password"
-                          id="form3Example4cd12"
-                          className="form-control borde"
-                          placeholder="Repite la Contraseña"
-                          {...register("repeatpass", {
-                            required: true,
-                            minLength: 8,
-                          })}
-                        />
-                        {errors.repeatpass?.type === "required" && (
-                          <p className="text-danger mx-auto">
-                            Ingresa una contraseña
-                          </p>
-                        )}
-                        {errors.repeatpass?.type === "minLength" && (
-                          <p className="text-danger mx-auto">
-                            La contraseña debe tener un minimo de 8 caracteres
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
                     <div className="form-check d-flex justify-content-center mb-5">
                       <input
                         className="form-check-input me-2 borde"
