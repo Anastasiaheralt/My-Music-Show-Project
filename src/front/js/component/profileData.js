@@ -19,17 +19,6 @@ export const ProfileData = () => {
                 placeholder="Disabled input"
               />
             </div>
-            <div class="mb-3">
-              <label htmlFor="disabledTextInput" className="form-label">
-                Apellidos
-              </label>
-              <input
-                type="text"
-                id="disabledTextInput"
-                className="form-control borde"
-                placeholder="Disabled input"
-              />
-            </div>
             <div className="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
                 Correo electronico
