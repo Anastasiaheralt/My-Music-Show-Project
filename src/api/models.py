@@ -9,9 +9,14 @@ class User(db.Model):
     # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
 #creo acá una funcion que me permita guardar un nuevo usuario en la db. 
+    def __init__(self, email, password, name,):
+        self.email = email
+        self.password = password
+        self.name = name
+
     @classmethod
-    def new_user(cls, name, email):
-        new_user = cls(name, email)
+    def new_user(cls, email, password, name):
+        new_user = cls(email, password, name)
         db.session.add(new_user)
         try:
             db.session.commit()
@@ -23,8 +28,8 @@ class User(db.Model):
 #EN el repo del diario, el code de main debe ir en routes en este proyecto. 
 #Mirar el classmethods del diairo y de las entradas
 
-    def __repr__(self):
-        return f'<User {self.email}>'
+    # def __repr__(self):
+    #     return f'<User {self.email}>'
 
     def serialize(self):
         return {
@@ -39,18 +44,34 @@ class Provider(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     name = db.Column(db.String(120), nullable=False)
-    # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     service = db.Column(db.String(80), unique=False, nullable=False)
     provider_charges = db.Column(db.String(80), unique=False, nullable=False)
+    # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     # image_1 = db.Column(db.String(250), unique=False, nullable=False)
     # image_2 = db.Column(db.String(250), unique=False, nullable=False)
     # image_3 = db.Column(db.String(250), unique=False, nullable=False)
     # image_4 = db.Column(db.String(250), unique=False, nullable=False)
     # image_5 = db.Column(db.String(250), unique=False, nullable=False)
 
+    def __init__(self, email, password, name, service, provider_charges):
+        self.email = email
+        self.password = password
+        self.name = name
+        self.service = service
+        self.provider_charges = provider_charges
 
-    def __repr__(self):
-        return f'<Provider {self.email}>'
+    @classmethod
+    def new_provider(cls, email, password, name, service, provider_charges):
+        new_provider = cls(email, password, name, service, provider_charges)
+        db.session.add(new_provider)
+        try:
+            db.session.commit()
+            return new_provider
+        except Exception as error:
+            print(error)
+            return None
+    # def __repr__(self):
+    #     return f'<Provider {self.email}>'
 
     def serialize(self):
         return {

@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Provider
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -34,23 +34,23 @@ def get_hello():
     #creando aca las variables para user y proveedor, para luego definir las rutas 
 
 #     users = [ { "name": "example", "email" : "emailExample" } ]
-#     providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
+# providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
 
 @api.route('/providers', methods=['GET'])
 def get_providers ():
     return jsonify(providers)
 
 @api.route('/user_register', methods=['POST'])
-def add_new_user():
+def add_new_user ():
     body = request.json
     if "name" not in body:
         return 'No tiene nombre!', 400
     if "email" not in body:
         return 'No tiene correo!', 400
     else:
-        new_row = User.new_user(body["name"], body["email"])
+        new_row = User.new_user(body["email"], body["password"], body["name"])
         if new_row == None:
-            return 'Un error ha ocurrid al intentar tu registro', 500
+            return 'Un error ha ocurrido al intentar completar tu registro', 500
         else:
             return jsonify(new_row.serialize()), 200
     # request_body = request.data
@@ -60,12 +60,18 @@ def add_new_user():
     # return jsonify(users)
 
 @api.route('/provider_register', methods=['POST'])
-def add_new_provider():
-    request_body = request.data
-    decoded_object = json.loads(request_body)
-    provider_register.append(decoded_object)
-    print("Incoming request with the following body", request_body)
-    return jsonify(providers)
+def add_new_provider ():
+    body = request.json
+    if "name" not in body:
+        return 'No tiene nombre!', 400
+    if "email" not in body:
+        return 'No tiene correo!', 400
+    else:
+        new_row = Provider.new_provider(body["email"], body["password"], body["name"], body["service"], body["provider_charges"])
+        if new_row == None:
+            return 'Un error ha ocurrido al intentar completar tu registro', 500
+        else:
+            return jsonify(new_row.serialize()), 200
 
 @api.route('/providers/<int:position>', methods=['GET'])
 def get_provider_by_id ():
