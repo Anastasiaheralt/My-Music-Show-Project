@@ -16,7 +16,7 @@ export const Registerclient = () => {
   } = useForm();
 
   const onSubmit = () => {
-    actions.addregister(data);
+    //actions.addregister(data);
     console.log(data);
     navigate("/");
   };
@@ -147,7 +147,6 @@ export const Registerclient = () => {
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button
                           type="submit"
-                          onClick={onSubmit}
                           className="btn btn-dark w-50 boton"
                         >
                           Registrar

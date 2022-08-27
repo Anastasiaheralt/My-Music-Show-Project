@@ -34,7 +34,7 @@ def get_hello():
     #creando aca las variables para user y proveedor, para luego definir las rutas 
 
 #     users = [ { "name": "example", "email" : "emailExample" } ]
-# providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
+providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
 
 @api.route('/providers', methods=['GET'])
 def get_providers ():
