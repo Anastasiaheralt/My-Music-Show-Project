@@ -12,7 +12,9 @@ export const Registerprovider = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    actions.addregister(data);
     console.log(data);
+    navigate("/");
   };
 
   const activarRegistro = watch("aceptarterminos");
@@ -164,6 +166,7 @@ export const Registerprovider = () => {
                         <button
                           type="submit"
                           className="btn btn-dark w-50 boton"
+                          onClick={onSubmit}
                         >
                           Registrar
                         </button>
