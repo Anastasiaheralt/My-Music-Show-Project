@@ -1,17 +1,17 @@
 import React from "react";
-import { Navbar } from "./../component/navbar";
-import { Footer } from "./../component/footer";
-import { ProfileData } from "../component/profileData";
+import { Navbar } from "../component/navbar";
+import { Footer } from "../component/footer";
+import { ProviderData } from "../component/ProviderData";
 import "./providerProfile.css";
 
-const card = {
+const cardP = {
   Title: "Name",
   Description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitabus neque.",
   ButtonC: "Actualizar",
 };
 
-export const UserPage = () => {
+export const ProviderPage = () => {
   return (
     <div>
       <div className="container-fluid bgdeg p-1">
@@ -31,14 +31,14 @@ export const UserPage = () => {
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{card.Title}</h5>
-                  <p className="card-text">{card.Description}</p>
+                  <h5 className="card-title">{cardP.Title}</h5>
+                  <p className="card-text">{cardP.Description}</p>
                 </div>
                 <div className="card-footer">
                   <br />
                   <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" className="btn btn-dark w-50 boton">
-                      {card.ButtonC}
+                      {cardP.ButtonC}
                     </button>
                   </div>
                 </div>
@@ -46,7 +46,7 @@ export const UserPage = () => {
             </div>
           </div>
           <div className="col-9">
-            <ProfileData />
+            <ProviderData />
           </div>
         </div>
       </div>

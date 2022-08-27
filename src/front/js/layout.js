@@ -12,7 +12,7 @@ import injectContext from "./store/appContext";
 import { Terminos } from "./pages/terminos";
 import { ProviderProfile } from "./pages/providerProfile";
 import { UserPage } from "./pages/userPage";
-import { Form } from "./pages/form";
+import { ProviderPage } from "./pages/providerPage";
 
 //create your first component
 const Layout = () => {
@@ -34,7 +34,7 @@ const Layout = () => {
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
             <Route element={<UserPage />} path="/userpage" />
-            <Route element={<Form />} path="/form" />
+            <Route element={<ProviderPage />} path="/providerpage" />
           </Routes>
         </ScrollToTop>
       </BrowserRouter>
