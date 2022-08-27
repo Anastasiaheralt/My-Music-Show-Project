@@ -3,20 +3,22 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
-    name = db.Column(db.String(120), nullable=False)
+    terms = db.Column(db.Boolean(), unique=False, nullable=False)
     # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
 #creo acá una funcion que me permita guardar un nuevo usuario en la db. 
-    def __init__(self, email, password, name,):
+    def __init__(self, name, email, password, terms,):
+        self.name = name
         self.email = email
         self.password = password
-        self.name = name
+        self.terms = terms
 
     @classmethod
-    def new_user(cls, email, password, name):
-        new_user = cls(email, password, name)
+    def new_user(cls, name, email, password, terms):
+        new_user = cls(name, email, password, terms)
         db.session.add(new_user)
         try:
             db.session.commit()
@@ -34,18 +36,20 @@ class User(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "email": self.email,
             "name": self.name
+            "email": self.email,
+            "terms": self.terms
             # do not serialize the password, its a security breach
         }
 
 class Provider(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
-    name = db.Column(db.String(120), nullable=False)
     service = db.Column(db.String(80), unique=False, nullable=False)
-    provider_charges = db.Column(db.String(80), unique=False, nullable=False)
+    terms = db.Column(db.Boolean(), unique=False, nullable=False)
+    #provider_charges = db.Column(db.String(80), unique=False, nullable=False)
     # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     # image_1 = db.Column(db.String(250), unique=False, nullable=False)
     # image_2 = db.Column(db.String(250), unique=False, nullable=False)
@@ -53,16 +57,18 @@ class Provider(db.Model):
     # image_4 = db.Column(db.String(250), unique=False, nullable=False)
     # image_5 = db.Column(db.String(250), unique=False, nullable=False)
 
-    def __init__(self, email, password, name, service, provider_charges):
+    def __init__(self, email, password, name, service, provider_charges, terms):
+        self.name = name
         self.email = email
         self.password = password
-        self.name = name
         self.service = service
-        self.provider_charges = provider_charges
+        self.terms = terms
+        #self.provider_charges = provider_charges
+#Agregar como ultimo argumento "provider_charges en lineas 65 y 66"
 
     @classmethod
-    def new_provider(cls, email, password, name, service, provider_charges):
-        new_provider = cls(email, password, name, service, provider_charges)
+    def new_provider(cls, name, email, password, service, terms):
+        new_provider = cls(name, email, password, service, terms)
         db.session.add(new_provider)
         try:
             db.session.commit()
@@ -76,9 +82,10 @@ class Provider(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "email": self.email,
             "name": self.name,
+            "email": self.email,
             "provider_charges": self.provider_charges
+            "terms": self.terms
             # "image_1": self.image_1,
             # "image_2": self.image_2,
             # "image_3": self.image_3,

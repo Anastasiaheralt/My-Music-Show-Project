@@ -34,7 +34,7 @@ def get_hello():
     #creando aca las variables para user y proveedor, para luego definir las rutas 
 
 #     users = [ { "name": "example", "email" : "emailExample" } ]
-providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
+#providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
 
 @api.route('/providers', methods=['GET'])
 def get_providers ():
@@ -48,7 +48,7 @@ def add_new_user ():
     if "email" not in body:
         return 'No tiene correo!', 400
     else:
-        new_row = User.new_user(body["email"], body["password"], body["name"])
+        new_row = User.new_user(body["name"], body["email"], body["password"], body["terms"])
         if new_row == None:
             return 'Un error ha ocurrido al intentar completar tu registro', 500
         else:
@@ -59,6 +59,8 @@ def add_new_user ():
     # print("Incoming request with the following body", request_body)
     # return jsonify(users)
 
+#Agregar como ultimo argumento del body el elemento , body["provider_charges"]
+
 @api.route('/provider_register', methods=['POST'])
 def add_new_provider ():
     body = request.json
@@ -67,9 +69,9 @@ def add_new_provider ():
     if "email" not in body:
         return 'No tiene correo!', 400
     else:
-        new_row = Provider.new_provider(body["email"], body["password"], body["name"], body["service"], body["provider_charges"])
+        new_row = Provider.new_provider(body["name"], body["email"], body["password"],  body["service"], body["terms"])
         if new_row == None:
-            return 'Un error ha ocurrido al intentar completar tu registro', 500
+            return 'Ha ocurrido un error al intentar completar tu registro', 500
         else:
             return jsonify(new_row.serialize()), 200
 
