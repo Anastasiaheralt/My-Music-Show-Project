@@ -12,9 +12,7 @@ export const Form = () => {
 
                 <form className="mx-1 mx-md-4">
                   <div className="input-group mb-3">
-                    <span className="input-group-text" id="basic-addon1">
-                      <i class="fa-solid fa-user"></i>
-                    </span>
+                    <span className="input-group-text" id="basic-addon1"></span>
                     <input
                       type="text"
                       className="form-control"
