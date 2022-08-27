@@ -15,8 +15,8 @@ export const Registerclient = () => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = () => {
-    actions.addregister(data);
+  const onSubmit = (data) => {
+    // actions.addregister(data);
     console.log(data);
     navigate("/");
   };
@@ -145,13 +145,11 @@ export const Registerclient = () => {
                     </div>
                     {activarRegistro && (
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button
+                        <input
                           type="submit"
-                          onClick={onSubmit}
                           className="btn btn-dark w-50 boton"
-                        >
-                          Registrar
-                        </button>
+                          value="Registrar"
+                        />
                       </div>
                     )}
                   </form>
