@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       token: null,
+      user: null,
       message: null,
       demo: [
         {
@@ -47,17 +48,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         try {
           const resp = await fetch(
-            process.env.BACKEND_URL + "/api/token",
+            process.env.BACKEND_URL + "/api/login",
             opts
           );
-          if (resp.status !== 200) {
-            alert("Ocurrio un error");
-            return false;
+          if (resp.ok) {
+            const data = await resp.json();
+            alert("iniciado con exito");
+            sessionStorage.setItem("token", data.token);
+            setStore({
+              token: data.token,
+              user: data.provider || data.user,
+            });
+
+            return true;
           }
-          const data = await resp.json();
-          sessionStorage.setItem("token", data.access_token);
-          setStore({ token: data.access_token });
-          return true;
+          alert("Ocurrio un error");
+          return false;
         } catch (error) {
           console.log("Ocurrio un error en el login");
         }
@@ -95,6 +101,39 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+      addRegisterProvider: async (data) => {
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: data.nombre,
+            email: data.correo,
+            password: data.password,
+            service: data.servicio,
+            terms: data.aceptarterminos,
+          }),
+        };
+        try {
+          // fetching data from the backend
+          const resp = await fetch(
+            process.env.BACKEND_URL + "/api/provider_register",
+            opts
+          );
+          if (resp.ok) {
+            window.alert("¡Proveedor registrado con éxito!");
+            const data = await resp.json();
+            //setStore({ message: data.message });
+            return data;
+          }
+          return undefined;
+          // don't forget to return something, that is how the async resolves
+        } catch (error) {
+          console.log("Error loading message from backend", error);
+        }
+      },
+
       getMessage: async () => {
         const store = getStore();
         const opts = {
@@ -117,6 +156,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error loading message from backend", error);
         }
       },
+
       changeColor: (index, color) => {
         //get the store
         const store = getStore();

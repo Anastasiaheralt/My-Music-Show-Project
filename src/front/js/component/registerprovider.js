@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 
 export const Registerprovider = () => {
   const navigate = useNavigate();
+  const { store, actions } = useContext(Context);
+
   const {
     register,
     watch,
@@ -13,7 +16,7 @@ export const Registerprovider = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // actions.addregister(data);
+    actions.addRegisterProvider(data);
     console.log(data);
     alert("Registro Exitoso");
     navigate("/");

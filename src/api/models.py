@@ -57,7 +57,7 @@ class Provider(db.Model):
     # image_4 = db.Column(db.String(250), unique=False, nullable=False)
     # image_5 = db.Column(db.String(250), unique=False, nullable=False)
 
-    def __init__(self, email, password, name, service, provider_charges, terms):
+    def __init__(self, name, email, password, service, terms):
         self.name = name
         self.email = email
         self.password = password
@@ -84,8 +84,9 @@ class Provider(db.Model):
             "id": self.id,
             "name": self.name,
             "email": self.email,
-            "provider_charges": self.provider_charges,
-            "terms": self.terms
+            "service": self.service,
+            "terms": self.terms,
+            # "provider_charges": self.provider_charges,
             # "image_1": self.image_1,
             # "image_2": self.image_2,
             # "image_3": self.image_3,

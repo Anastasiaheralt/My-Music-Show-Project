@@ -79,9 +79,9 @@ export const Navbar = () => {
             ) : (
               <>
                 <Link className="btn btn-link texto3 " to="/userPage">
-                  Mi Perfil
+                  {store.user && store.user.name}
                 </Link>
-                <span class="material-symbols-outlined text-white pt-2 ">
+                <span className="material-symbols-outlined text-white pt-2 ">
                   account_circle
                 </span>
                 <button

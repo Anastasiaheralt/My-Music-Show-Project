@@ -6,20 +6,28 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
-
 api = Blueprint('api', __name__)
 
-# Create a route to authenticate your users and return JWTs. The
-# create_access_token() function is used to actually generate the JWT.
-@api.route("/token", methods=["POST"])
+
+
+@api.route("/login", methods=["POST"])
 def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    if email != "test" or password != "test":
-        return jsonify({"msg": "Bad username or password"}), 401
+    search = User.query.filter_by(email=email).one_or_none()
+    if search != None and search.password == password:
+        access_token = create_access_token(identity=email)
+        return jsonify({"token" : access_token, "user" : search.serialize()}), 201
+    else:
+        search = Provider.query.filter_by(email=email).one_or_none()
+        if search != None and search.password == password:
+            access_token = create_access_token(identity=email)
+            return jsonify({"token" : access_token, "provider" : search.serialize()}), 201
+        else:
+            return jsonify({"msg": "Bad username or password"}), 401
+            
+    # return jsonify({"msg": "Unete a la Experiencia de MyMusicShow, Registrate"}), 401
 
-    access_token = create_access_token(identity=email)
-    return jsonify(access_token=access_token)
 
 @api.route('/hello', methods=['GET'])
 @jwt_required()
