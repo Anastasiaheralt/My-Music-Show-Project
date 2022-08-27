@@ -1,9 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 
 export const Registerprovider = () => {
+  const navigate = useNavigate();
   const {
     register,
     watch,
@@ -12,7 +13,7 @@ export const Registerprovider = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    actions.addregister(data);
+    // actions.addregister(data);
     console.log(data);
     navigate("/");
   };
@@ -163,13 +164,11 @@ export const Registerprovider = () => {
                     </div>
                     {activarRegistro && (
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button
+                        <input
                           type="submit"
                           className="btn btn-dark w-50 boton"
-                          onClick={onSubmit}
-                        >
-                          Registrar
-                        </button>
+                          value="Registrar"
+                        />
                       </div>
                     )}
                   </form>
