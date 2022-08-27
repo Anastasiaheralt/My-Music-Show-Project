@@ -30,7 +30,7 @@ export const ProfileData = () => {
                 placeholder="Disabled input"
               />
             </div>
-            <div class="mb-3">
+            <div className="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
                 Correo electronico
               </label>
@@ -41,9 +41,9 @@ export const ProfileData = () => {
                 placeholder="Disabled input"
               />
             </div>
-            <div class="mb-3">
+            <div className="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
-                Contrasena
+                Contraseña
               </label>
               <input
                 type="text"

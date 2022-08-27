@@ -8,7 +8,7 @@ const card = {
   Title: "Name",
   Description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitabus neque.",
-  ButtonC: "Actualizar perfil",
+  ButtonC: "Actualizar",
 };
 
 export const UserPage = () => {
@@ -24,7 +24,7 @@ export const UserPage = () => {
         <div className="row">
           <div className="col-3">
             <div className="container">
-              <div className="card">
+              <div className="card" /*style="width: 18rem"*/>
                 <img
                   className="card-img-top"
                   src="https://us.123rf.com/450wm/thesomeday123/thesomeday1231712/thesomeday123171200009/91087331-icono-de-perfil-de-avatar-predeterminado-para-hombre-marcador-de-posici%C3%B3n-de-foto-gris-vector-de-ilu.jpg?ver=6"
@@ -35,9 +35,14 @@ export const UserPage = () => {
                   <p className="card-text">{card.Description}</p>
                 </div>
                 <div className="card-footer">
-                  <a href="#" className="btn btn-info">
-                    {card.ButtonC}
-                  </a>
+                <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <button
+                          type="submit"
+                          className="btn btn-dark w-50 boton"
+                        >
+                        {card.ButtonC}
+                        </button>
+                      </div>
                 </div>
               </div>
             </div>
