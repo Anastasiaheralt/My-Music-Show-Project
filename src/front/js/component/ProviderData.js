@@ -21,17 +21,6 @@ export const ProviderData = () => {
             </div>
             <div class="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
-                Apellidos
-              </label>
-              <input
-                type="text"
-                id="disabledTextInput"
-                className="form-control borde"
-                placeholder="Disabled input"
-              />
-            </div>
-            <div class="mb-3">
-              <label htmlFor="disabledTextInput" className="form-label">
                 Correo electrónico
               </label>
               <input
@@ -43,7 +32,7 @@ export const ProviderData = () => {
             </div>
             <div class="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
-                Teléfono
+                Contraseña
               </label>
               <input
                 type="text"
@@ -52,9 +41,10 @@ export const ProviderData = () => {
                 placeholder="Disabled input"
               />
             </div>
+
             <div class="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
-                Contraseña
+                Servicio
               </label>
               <input
                 type="text"
@@ -127,7 +117,6 @@ export const ProviderData = () => {
                           ></img>
                         </div>
                       </div>
-                      
                     </div>
                   </div>
                 </div>
