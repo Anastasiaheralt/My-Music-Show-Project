@@ -16,7 +16,7 @@ export const Registerclient = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // actions.addregister(data);
+    actions.addRegister(data);
     console.log(data);
     navigate("/");
   };
