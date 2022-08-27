@@ -36,7 +36,7 @@ class User(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.name
+            "name": self.name,
             "email": self.email,
             "terms": self.terms
             # do not serialize the password, its a security breach
@@ -84,7 +84,7 @@ class Provider(db.Model):
             "id": self.id,
             "name": self.name,
             "email": self.email,
-            "provider_charges": self.provider_charges
+            "provider_charges": self.provider_charges,
             "terms": self.terms
             # "image_1": self.image_1,
             # "image_2": self.image_2,
