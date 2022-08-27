@@ -32,18 +32,6 @@ export const ProviderData = () => {
             </div>
             <div class="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
-                Rif
-              </label>
-              <input
-                type="text"
-                id="disabledTextInput"
-                className="form-control borde"
-                placeholder="Disabled input"
-              />
-            </div>
-
-            <div class="mb-3">
-              <label htmlFor="disabledTextInput" className="form-label">
                 Correo electrónico
               </label>
               <input
@@ -66,7 +54,7 @@ export const ProviderData = () => {
             </div>
             <div class="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
-                Servicio
+                Contraseña
               </label>
               <input
                 type="text"
@@ -78,7 +66,7 @@ export const ProviderData = () => {
 
             <div class="mb-3">
               <label htmlFor="disabledTextInput" className="form-label">
-                Contraseña
+                Descripción del servicio
               </label>
               <input
                 type="text"
@@ -86,6 +74,64 @@ export const ProviderData = () => {
                 className="form-control borde"
                 placeholder="Disabled input"
               />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="disabledTextInput" className="form-label">
+                Costo del servicio
+              </label>
+              <input
+                type="text"
+                id="disabledTextInput"
+                className="form-control borde"
+                placeholder="Disabled input"
+              />
+            </div>
+            <div>
+              Eventos
+              <div>
+                <div className="container px-4 text-center">
+                  <div className="row gx-5">
+                    <div className="col">
+                      <div className="p-3 border bg-light">
+                        <img
+                          src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                          class="img-fluid"
+                          alt="..."
+                        ></img>
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="p-3 border bg-light">
+                        <img
+                          src="https://images.unsplash.com/photo-1615966650071-855b15f29ad1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1266&q=80"
+                          className="img-thumbnail"
+                          alt="..."
+                        ></img>
+                      </div>
+                      <div className="col">
+                        <div className="p-3 border bg-light">
+                          <img
+                            src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                            className="img-thumbnail"
+                            alt="..."
+                          ></img>
+                        </div>
+                      </div>
+
+                      <div className="col">
+                        <div className="p-3 border bg-light">
+                          <img
+                            src="https://images.unsplash.com/photo-1632054554177-a708126072c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                            className="img-thumbnail"
+                            alt="..."
+                          ></img>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </fieldset>
         </form>
