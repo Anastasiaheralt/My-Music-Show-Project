@@ -35,14 +35,12 @@ export const UserPage = () => {
                   <p className="card-text">{card.Description}</p>
                 </div>
                 <div className="card-footer">
-                <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button
-                          type="submit"
-                          className="btn btn-dark w-50 boton"
-                        >
-                        {card.ButtonC}
-                        </button>
-                      </div>
+                  <br />
+                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" className="btn btn-dark w-50 boton">
+                      {card.ButtonC}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
