@@ -91,7 +91,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (resp.ok) {
             window.alert("¡Registrado con éxito!");
             const data = await resp.json();
-            //setStore({ message: data.message });
             return data;
           }
           return undefined;
