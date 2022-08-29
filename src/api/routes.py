@@ -85,9 +85,9 @@ def add_new_provider ():
 
 @api.route('/providers/<int:position>', methods=['GET'])
 def get_provider_by_id ():
-    return jsonify(providers)
+    return jsonify({})
 
 @api.route('/login', methods=['GET'])
 def get_login ():
-    return jsonify(providers)
+    return jsonify({})
     #SamuelAYUDAAAAAAA

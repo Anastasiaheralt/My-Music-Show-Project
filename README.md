@@ -109,3 +109,4 @@ pipenv run init
 pipenv run migrate
 pipenv run upgrade
 pipenv run start
+BACKEND_URL=https://3001-jechf-proyectofinal-etcwiw054ea.ws-us63.gitpod.io
