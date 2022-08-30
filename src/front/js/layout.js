@@ -35,7 +35,7 @@ const Layout = () => {
             <Route element={<h1>Not found!</h1>} />
             <Route element={<UserPage />} path="/userpage" />
             <Route element={<ProviderPage />} path="/providerpage" />
-            <Route path="/provider/:username" element={<UserPage />}/>
+            <Route path="/provider/:username" element={<ProviderProfile />}/>
           </Routes>
         </ScrollToTop>
       </BrowserRouter>
