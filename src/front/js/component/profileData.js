@@ -52,7 +52,7 @@ export const ProfileData = () => {
             aria-current="true"
           >
             <div className="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Evento contatado</h5>
+              <h5 className="mb-1">Evento contatado</h5>
               <small>3 days ago</small>
             </div>
             <p className="mb-1">Boda real</p>
@@ -61,7 +61,7 @@ export const ProfileData = () => {
           <a href="#" className="list-group-item list-group-item-action">
             <div className="d-flex w-100 justify-content-between">
               <h5 className="mb-1">Evento contratado</h5>
-              <small classNme="text-muted">21 days ago</small>
+              <small className="text-muted">21 days ago</small>
             </div>
             <p className="mb-1">Grduación Medicina ULA.</p>
             <small className="text-muted">Dj Ann.</small>

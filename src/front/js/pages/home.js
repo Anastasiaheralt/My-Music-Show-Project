@@ -9,6 +9,22 @@ import "../../styles/home.css";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
+  const apinames = [];
+  const apidescription = [];
+
+  // for (let i = 0; i < 4; i++) {
+  //   apinames[i] = store.providers[i];
+  // apidescription[i] = store.providers[i].description;
+  // }
+
+  useEffect(() => {
+    actions.getProviders();
+    if (store.token && store.token != "" && store.token != undefined)
+      actions.getMessage();
+  }, [store.token]);
+
+  console.log(store.providers);
+
   const titleServices = [
     "Destacados",
     "Música",
@@ -16,7 +32,9 @@ export const Home = () => {
     "Locaciones",
     "Catering",
   ];
+
   const pictures = "https://picsum.photos/200?random=";
+
   const photonames = [
     "Maria Teresa Monasterios",
     "Orlando Navas",
@@ -31,11 +49,6 @@ export const Home = () => {
     "Bora La Mar",
   ];
 
-  useEffect(() => {
-    if (store.token && store.token != "" && store.token != undefined)
-      actions.getMessage();
-  }, [store.token]);
-
   return (
     <div>
       <Navbar />
@@ -45,6 +58,10 @@ export const Home = () => {
           csstitulo={"m-2 text-white"}
           titulo={titleServices[0]}
           imagen={pictures}
+          name1={apinames[0]}
+          name2={apinames[1]}
+          name3={apinames[2]}
+          name4={apinames[3]}
         ></Services>
       </div>
       <div className="container-fluid my-2">

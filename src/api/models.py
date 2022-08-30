@@ -49,7 +49,8 @@ class Provider(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     service = db.Column(db.String(80), unique=False, nullable=False)
     terms = db.Column(db.Boolean(), unique=False, nullable=False)
-    #provider_charges = db.Column(db.String(80), unique=False, nullable=False)
+    provider_charges = db.Column(db.String(80), unique=False, nullable=False)
+    service_description = db.Column(db.String(500), unique=False, nullable=False)
     # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     # image_1 = db.Column(db.String(250), unique=False, nullable=False)
     # image_2 = db.Column(db.String(250), unique=False, nullable=False)
@@ -57,18 +58,20 @@ class Provider(db.Model):
     # image_4 = db.Column(db.String(250), unique=False, nullable=False)
     # image_5 = db.Column(db.String(250), unique=False, nullable=False)
 
-    def __init__(self, name, email, password, service, terms):
+    def __init__(self, name, email, password, service, terms, provider_charges, service_description):
         self.name = name
         self.email = email
         self.password = password
         self.service = service
         self.terms = terms
+        self.provider_charges = provider_charges
+        self.service_description = service_description
         #self.provider_charges = provider_charges
 #Agregar como ultimo argumento "provider_charges en lineas 65 y 66"
 
     @classmethod
-    def new_provider(cls, name, email, password, service, terms):
-        new_provider = cls(name, email, password, service, terms)
+    def new_provider(cls, name, email, password, service, terms, provider_charges, service_description):
+        new_provider = cls(name, email, password, service, terms, provider_charges, service_description)
         db.session.add(new_provider)
         try:
             db.session.commit()
@@ -86,7 +89,9 @@ class Provider(db.Model):
             "email": self.email,
             "service": self.service,
             "terms": self.terms,
-            # "provider_charges": self.provider_charges,
+            "provider_charges": self.provider_charges,
+            "service_description": self.service_description,
+            
             # "image_1": self.image_1,
             # "image_2": self.image_2,
             # "image_3": self.image_3,

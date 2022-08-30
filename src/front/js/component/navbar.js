@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./navbar.css";
 import LOGO from "../../img/LOGO.png";
 import { useScrollPosition } from "./../hooks/useScrollPosition";
@@ -78,7 +78,12 @@ export const Navbar = () => {
               </>
             ) : (
               <>
-                <Link className="btn btn-link texto3 " to="/userPage">
+                <Link
+                  className="btn btn-link texto3"
+                  to={
+                    store.userType === "false" ? "/providerPage" : "/userPage"
+                  }
+                >
                   {store.user && store.user.name}
                 </Link>
                 <span className="material-symbols-outlined text-white pt-2 ">
