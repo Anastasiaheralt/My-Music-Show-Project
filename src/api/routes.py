@@ -8,8 +8,6 @@ from flask_jwt_extended import jwt_required
 
 api = Blueprint('api', __name__)
 
-
-
 @api.route("/login", methods=["POST"])
 def create_token():
     email = request.json.get("email", None)
@@ -17,18 +15,16 @@ def create_token():
     search = User.query.filter_by(email=email).one_or_none()
     if search != None and search.password == password:
         access_token = create_access_token(identity=email)
-        return jsonify({"token" : access_token, "user" : search.serialize()}), 201
+        return jsonify({"token" : access_token, "user" : search.serialize(), "user_type" : "false" }), 201
     else:
         search = Provider.query.filter_by(email=email).one_or_none()
         if search != None and search.password == password:
             access_token = create_access_token(identity=email)
-            return jsonify({"token" : access_token, "provider" : search.serialize()}), 201
+            return jsonify({"token" : access_token, "provider" : search.serialize(), "user_type" : "true"}), 201
         else:
             return jsonify({"msg": "Bad username or password"}), 401
             
-    # return jsonify({"msg": "Unete a la Experiencia de MyMusicShow, Registrate"}), 401
-
-
+            
 @api.route('/hello', methods=['GET'])
 @jwt_required()
 def get_hello():
@@ -36,17 +32,6 @@ def get_hello():
     response_body = {
         "message": "Hello!" + email
     }
-
-    return jsonify(response_body), 200
-
-    #creando aca las variables para user y proveedor, para luego definir las rutas 
-
-#     users = [ { "name": "example", "email" : "emailExample" } ]
-#providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
-
-@api.route('/providers', methods=['GET'])
-def get_providers ():
-    return jsonify(providers)
 
 @api.route('/user_register', methods=['POST'])
 def add_new_user ():
@@ -77,7 +62,7 @@ def add_new_provider ():
     if "email" not in body:
         return 'No tiene correo!', 400
     else:
-        new_row = Provider.new_provider(body["name"], body["email"], body["password"],  body["service"], body["terms"])
+        new_row = Provider.new_provider(body["name"], body["email"], body["password"],  body["service"], body["terms"], "0 USD", "Agrega una descripción...")
         if new_row == None:
             return 'Ha ocurrido un error al intentar completar tu registro', 500
         else:
@@ -87,7 +72,18 @@ def add_new_provider ():
 def get_provider_by_id ():
     return jsonify({})
 
-@api.route('/login', methods=['GET'])
-def get_login ():
-    return jsonify({})
-    #SamuelAYUDAAAAAAA
+@api.route('/admin', methods=['GET'])
+def get_all_providers ():
+    all_providers = Provider.query.all()
+    return jsonify([provider.serialize() for provider in all_{}]), 200
+
+#     return jsonify(response_body), 200
+
+    #creando aca las variables para user y proveedor, para luego definir las rutas 
+
+#     users = [ { "name": "example", "email" : "emailExample" } ]
+#providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
+
+# @api.route('/providers', methods=['GET'])
+# def get_providers ():
+#     return jsonify(providers)

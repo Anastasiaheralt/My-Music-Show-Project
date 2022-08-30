@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       token: null,
       user: null,
       message: null,
+      providers: [],
       demo: [
         {
           title: "FIRST",
@@ -53,11 +54,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           );
           if (resp.ok) {
             const data = await resp.json();
+
             alert("iniciado con exito");
             sessionStorage.setItem("token", data.token);
+
             setStore({
               token: data.token,
               user: data.provider || data.user,
+              userType: data.user_type,
             });
 
             return true;
@@ -133,6 +137,39 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+      getProviders: async () => {
+        const opts = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        try {
+          const store = getStore();
+          const resp = await fetch(
+            process.env.BACKEND_URL + "/api/admin",
+            opts
+          );
+          if (resp.ok) {
+            const data = await resp.json();
+
+            setStore({ ...store, providers: data });
+
+            // setStore({
+            //   token: data.token,
+            //   user: data.provider || data.user,
+            //   userType: data.user_type,
+            // });
+
+            return true;
+          }
+          alert("Ocurrio un error");
+          return false;
+        } catch (error) {
+          console.log("Ocurrio un error al cargar proveedores");
+        }
+      },
+
       getMessage: async () => {
         const store = getStore();
         const opts = {
@@ -144,7 +181,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         try {
           // fetching data from the backend
           const resp = await fetch(
-            "https://3001-jechf-proyectofinal-nphql2inxuv.ws-us63.gitpod.io/api/hello",
+            process.env.BACKEND_URL + "/api/hello",
             opts
           );
           const data = await resp.json();
