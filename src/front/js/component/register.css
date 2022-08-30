@@ -19,3 +19,8 @@
   font-weight: 300;
   color: black;
 }
+
+.progress-bar {
+  width: 50%;
+}
+
