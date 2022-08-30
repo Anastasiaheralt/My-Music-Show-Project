@@ -8,8 +8,6 @@ import { Context } from "../store/appContext";
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
   const scrollPosition = useScrollPosition();
-  console.log( store.user + "soy el navbar" );
-  console.log(JSON.stringify(store.user))
 
   return (
     

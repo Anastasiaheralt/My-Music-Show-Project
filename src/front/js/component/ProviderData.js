@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useContext} from 'react';
 import "./register.css";
+import { Context } from "../store/appContext";
+
 
 export const ProviderData = () => {
+
+  const { store } = useContext(Context);
+
   return (
     <div className="container d-flex fuente2">
       <div className="col-6 ">
@@ -16,7 +21,7 @@ export const ProviderData = () => {
                 type="text"
                 id="disabledTextInput"
                 className="form-control borde"
-                placeholder="Disabled input"
+                placeholder={store.user.name}
               />
             </div>
             <div class="mb-3">
@@ -27,7 +32,7 @@ export const ProviderData = () => {
                 type="text"
                 id="disabledTextInput"
                 className="form-control borde"
-                placeholder="Disabled input"
+                placeholder={store.user.email}
               />
             </div>
             <div class="mb-3">
@@ -50,7 +55,7 @@ export const ProviderData = () => {
                 type="text"
                 id="disabledTextInput"
                 className="form-control borde"
-                placeholder="Disabled input"
+                placeholder={store.user.service}
               />
             </div>
 
@@ -62,7 +67,7 @@ export const ProviderData = () => {
                 type="text"
                 id="disabledTextInput"
                 className="form-control borde"
-                placeholder="Disabled input"
+                placeholder={store.user.service_description}
               />
             </div>
             <div className="mb-3">
@@ -73,7 +78,7 @@ export const ProviderData = () => {
                 type="text"
                 id="disabledTextInput"
                 className="form-control borde"
-                placeholder="Disabled input"
+                placeholder={store.user.provider_charges}
               />
             </div>
             <div>

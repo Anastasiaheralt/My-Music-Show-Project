@@ -1,10 +1,32 @@
-import React from "react";
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom";
 import "./services.css";
+import { Context } from "../store/appContext";
 
 export const Services = (props) => {
+  const { store, actions } = useContext(Context);
   return (
     <>
+    <div>
+    {store.providers.map((provider) => (
+						<div className="col" key={`servicio-${provider.name}`}>
+              <Link to={`/provider/${provider.name}`}>
+              <div className="card hvr-grow">
+                <div className="card-body">
+                  <h5 className="card-title">{provider.name}</h5>
+                </div>
+              </div>
+              </Link>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => { actions.getProvidersEspecifico(provider.name)}}
+              >
+               llama detalle
+              </button>
+            </div>
+					))}
+    </div>
       <div className="container-fluid pb-5">
         <h1 className={props.csstitulo}>{props.titulo}</h1>
         <div className="row">

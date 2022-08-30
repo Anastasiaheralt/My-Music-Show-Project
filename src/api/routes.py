@@ -68,9 +68,27 @@ def add_new_provider ():
         else:
             return jsonify(new_row.serialize()), 200
 
-@api.route('/providers/<int:position>', methods=['GET'])
-def get_provider_by_id ():
-    return jsonify({})
+
+@api.route('/provider/<string:username>', methods=['GET'])
+def handle_user(username = None):
+    print("hola")
+    print(username)
+    print(username + "soy el username")
+    if request.method == 'GET':
+        if user_id  is None:
+            users = User.query.all()
+            users = list(map(lambda user: user.serialize(), users))
+        return jsonify(users),200
+    else:
+        user = User.query.filter_by(name=username).first()
+        if user is not None:
+            return jsonify(user.serialize()),200
+        else:
+            return jsonify({
+					"msg": "user not found"
+				}), 404
+#def get_provider_by_id ():
+#  return jsonify({})
 
 @api.route('/admin', methods=['GET'])
 def get_all_providers ():

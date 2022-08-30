@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from 'react';
 import "./register.css";
+import { Context } from "../store/appContext";
 
 export const ProfileData = () => {
+  const { store } = useContext(Context);
   return (
     <div className="container d-flex fuente2">
       <div className="col-6 ">
@@ -16,7 +18,7 @@ export const ProfileData = () => {
                 type="text"
                 id="disabledTextInput"
                 className="form-control borde"
-                placeholder="Disabled input"
+                placeholder={store.user.name}
               />
             </div>
             <div className="mb-3">
@@ -27,7 +29,7 @@ export const ProfileData = () => {
                 type="text"
                 id="disabledTextInput"
                 className="form-control borde"
-                placeholder="Disabled input"
+                placeholder={store.user.email}
               />
             </div>
             <div className="mb-3">

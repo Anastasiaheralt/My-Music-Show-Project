@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       providers: [],
       user: JSON.parse(localStorage.getItem("user")) || [],
+      providerEspecifico: [],
       demo: [
         {
           title: "FIRST",
@@ -161,6 +162,39 @@ const getState = ({ getStore, getActions, setStore }) => {
             const data = await resp.json();
 
             setStore({ ...store, providers: data });
+
+            // setStore({
+            //   token: data.token,
+            //   user: data.provider || data.user,
+            //   userType: data.user_type,
+            // });
+
+            return true;
+          }
+          alert("Ocurrio un error");
+          return false;
+        } catch (error) {
+          console.log("Ocurrio un error al cargar proveedores");
+        }
+      },
+      getProvidersEspecifico: async (proveedor) => {
+        console.log(proveedor)
+        const opts = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        try {
+          const store = getStore();
+          const resp = await fetch(
+            process.env.BACKEND_URL + `/provider/${proveedor}`,
+            opts
+          );
+          if (resp.ok) {
+            const data = await resp.json();
+
+            setStore({ ...store, providerEspecifico: data });
 
             // setStore({
             //   token: data.token,
