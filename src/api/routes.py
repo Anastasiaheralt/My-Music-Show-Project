@@ -46,11 +46,6 @@ def add_new_user ():
             return 'Un error ha ocurrido al intentar completar tu registro', 500
         else:
             return jsonify(new_row.serialize()), 200
-    # request_body = request.data
-    # decoded_object = json.loads(request_body)
-    # user_register.append(decoded_object)
-    # print("Incoming request with the following body", request_body)
-    # return jsonify(users)
 
 #Agregar como ultimo argumento del body el elemento , body["provider_charges"]
 
@@ -87,21 +82,8 @@ def handle_user(username = None):
             return jsonify({
 					"msg": "user not found"
 				}), 404
-#def get_provider_by_id ():
-#  return jsonify({})
 
 @api.route('/admin', methods=['GET'])
 def get_all_providers ():
     all_providers = Provider.query.all()
     return jsonify([provider.serialize() for provider in all_providers]), 200
-
-#     return jsonify(response_body), 200
-
-    #creando aca las variables para user y proveedor, para luego definir las rutas 
-
-#     users = [ { "name": "example", "email" : "emailExample" } ]
-#providers = [ { "name": "example", "email" : "emailExample", "provider_charges": "200USD", "service": "music" } ]
-
-# @api.route('/providers', methods=['GET'])
-# def get_providers ():
-#     return jsonify(providers)

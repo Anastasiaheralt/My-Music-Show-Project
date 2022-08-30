@@ -9,7 +9,6 @@ class User(db.Model):
     terms = db.Column(db.Boolean(), unique=False, nullable=False)
     client = db.Column(db.Boolean(), unique=False, nullable=False)
     provider = db.Column(db.Boolean(), unique=False, nullable=False)
-    # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
 #creo acá una funcion que me permita guardar un nuevo usuario en la db. 
     def __init__(self, name, email, password, terms, client, provider):
@@ -57,12 +56,7 @@ class Provider(db.Model):
     terms = db.Column(db.Boolean(), unique=False, nullable=False)
     provider_charges = db.Column(db.String(80), unique=False, nullable=False)
     service_description = db.Column(db.String(500), unique=False, nullable=False)
-    # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
-    # image_1 = db.Column(db.String(250), unique=False, nullable=False)
-    # image_2 = db.Column(db.String(250), unique=False, nullable=False)
-    # image_3 = db.Column(db.String(250), unique=False, nullable=False)
-    # image_4 = db.Column(db.String(250), unique=False, nullable=False)
-    # image_5 = db.Column(db.String(250), unique=False, nullable=False)
+
 
     def __init__(self, name, email, password, service, terms, provider_charges, service_description):
         self.name = name
@@ -98,11 +92,6 @@ class Provider(db.Model):
             "provider_charges": self.provider_charges,
             "service_description": self.service_description,
             
-            # "image_1": self.image_1,
-            # "image_2": self.image_2,
-            # "image_3": self.image_3,
-            # "image_4": self.image_4,
-            # "image_5": self.image_5,
 
             # do not serialize the password, its a security breach
         }
