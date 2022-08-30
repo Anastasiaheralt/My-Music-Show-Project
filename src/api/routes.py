@@ -41,7 +41,7 @@ def add_new_user ():
     if "email" not in body:
         return 'No tiene correo!', 400
     else:
-        new_row = User.new_user(body["name"], body["email"], body["password"], body["terms"])
+        new_row = User.new_user(body["name"], body["email"], body["password"], body["terms"], body["client"], body["provider"])
         if new_row == None:
             return 'Un error ha ocurrido al intentar completar tu registro', 500
         else:
@@ -75,7 +75,7 @@ def get_provider_by_id ():
 @api.route('/admin', methods=['GET'])
 def get_all_providers ():
     all_providers = Provider.query.all()
-    return jsonify([provider.serialize() for provider in all_{}]), 200
+    return jsonify([provider.serialize() for provider in all_providers]), 200
 
 #     return jsonify(response_body), 200
 

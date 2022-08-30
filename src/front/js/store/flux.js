@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       user: null,
       message: null,
       providers: [],
+      user: JSON.parse(localStorage.getItem("user")) || [],
       demo: [
         {
           title: "FIRST",
@@ -34,6 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         sessionStorage.removeItem("token");
         console.log("Sesion terminada");
         setStore({ token: null });
+        localStorage.removeItem("user");
       },
 
       login: async (email, password) => {
@@ -63,7 +65,8 @@ const getState = ({ getStore, getActions, setStore }) => {
               user: data.provider || data.user,
               userType: data.user_type,
             });
-
+            localStorage.setItem("user", JSON.stringify(getStore().user));
+            console.log(store.user + "desde la store");
             return true;
           }
           alert("Ocurrio un error");
@@ -84,6 +87,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             email: data.correo,
             password: data.password,
             terms: data.aceptarterminos,
+            client: true,
+            provider: false,
           }),
         };
         try {
@@ -116,6 +121,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             password: data.password,
             service: data.servicio,
             terms: data.aceptarterminos,
+            provider: true,
+            client: false,
           }),
         };
         try {

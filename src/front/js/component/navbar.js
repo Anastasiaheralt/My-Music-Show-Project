@@ -8,8 +8,11 @@ import { Context } from "../store/appContext";
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
   const scrollPosition = useScrollPosition();
+  console.log( store.user + "soy el navbar" );
+  console.log(JSON.stringify(store.user))
 
   return (
+    
     <nav
       className={`navbar navbar-expand-lg fixed-top
     ${scrollPosition > 100 ? "shadow-lg shadow-lg colornav" : "bg-*"}`}
@@ -81,7 +84,8 @@ export const Navbar = () => {
                 <Link
                   className="btn btn-link texto3"
                   to={
-                    store.userType === "false" ? "/providerPage" : "/userPage"
+                    store.user.client === true ? "/userPage" :  "/providerPage"
+                    
                   }
                 >
                   {store.user && store.user.name}

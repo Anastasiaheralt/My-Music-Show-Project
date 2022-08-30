@@ -7,18 +7,22 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     terms = db.Column(db.Boolean(), unique=False, nullable=False)
+    client = db.Column(db.Boolean(), unique=False, nullable=False)
+    provider = db.Column(db.Boolean(), unique=False, nullable=False)
     # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
 #creo acá una funcion que me permita guardar un nuevo usuario en la db. 
-    def __init__(self, name, email, password, terms,):
+    def __init__(self, name, email, password, terms, client, provider):
         self.name = name
         self.email = email
         self.password = password
         self.terms = terms
+        self.client = client
+        self.provider = provider
 
     @classmethod
-    def new_user(cls, name, email, password, terms):
-        new_user = cls(name, email, password, terms)
+    def new_user(cls, name, email, password, terms, client, provider):
+        new_user = cls(name, email, password, terms, client, provider)
         db.session.add(new_user)
         try:
             db.session.commit()
@@ -38,7 +42,9 @@ class User(db.Model):
             "id": self.id,
             "name": self.name,
             "email": self.email,
-            "terms": self.terms
+            "terms": self.terms,
+            "client": self.client,
+            "provider": self.provider,
             # do not serialize the password, its a security breach
         }
 
