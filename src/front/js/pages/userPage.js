@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar } from "./../component/navbar";
 import { Footer } from "./../component/footer";
 import { ProfileData } from "../component/profileData";
 import "./providerProfile.css";
-// import { Context } from "../store/appContext";
+import { Context } from "../store/appContext";
 
 const card = { 
   Title: "Name",
@@ -14,7 +14,7 @@ const card = {
 
 export const UserPage = () => {
 
-  // const { store } = useContext(Context);
+  const { store } = useContext(Context);
 
   return (
     <div>
@@ -35,7 +35,7 @@ export const UserPage = () => {
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{card.Title}</h5>
+                  <h5 className="card-title">{store.user.name}</h5>
                   <p className="card-text">{card.Description}</p>
                 </div>
                 <div className="card-footer">
