@@ -94,3 +94,71 @@ def handle_user(proveedor_id):
         proveedor_by_id = Provider.query.get(proveedor_id)
         return jsonify(proveedor_by_id.serialize()),200
     return "proveedor no encontrado", 404
+
+
+@app.route('/contratar', methods=['POST'])
+@jwt_required()
+def handle_add_orden():
+	body=request.json
+	body_service=body.get("servicio", None)
+	body_proveedor=body.get("proveedor_id", None)
+
+
+	if body_service is not  None:
+		user = get_jwt_identity()
+		cliente_asignado = User.query.filter_by(id=user).first()
+		proveedor_asignado = User.query.filter_by(id=body_proveedor).first()
+		
+
+		if user is not None:
+					orden_servicio= Evento.query.filter_by(detalle_servicio_id=servicio.id, cliente_id=cliente_asignado.id, proveedor_id=proveedor_asignado.id).first()
+					if orden_servicio is not None:
+							return jsonify({
+								"msg":"La orden por este servicio ya existe en tu perfil!"
+							})
+					else:
+						orden = Evento(detalle_servicio_id=servicio.id, proveedor_id=proveedor_asignado.id, cliente_id=cliente_asignado.id, status_orden_progreso=True, status_orden_recibida=False, status_orden_aceptada=False,status_orden_cancelada=False, status_orden_finalizada=False )	
+						try:
+							db.session.add(orden)
+							db.session.commit()
+							return jsonify(orden.serialize()), 201
+						except Exception as error:
+							db.session.rollback()
+							return jsonify(error.args), 500
+		else:
+				return jsonify({
+								"msg": "Por favor entra en tu usuario!"
+								}), 400
+	else:
+		return jsonify({
+						"msg": "Algo paso, intentalo nuevamente [bad body format]"
+						}), 400
+
+@app.route('/contratos_pendientes', methods=['GET'])
+@jwt_required()
+def handle_contratos_pendientes():
+	if request.method == 'GET':
+		user = get_jwt_identity()
+		pendientes = Evento.query.filter_by(proveedor_id=user, status_orden_progreso=True).all()
+		pendientes_existentes = list(map(lambda pendiente: pendiente.serialize(), pendientes))
+		if len(pendientes) > 0:
+			return jsonify(pendientes_existentes),200
+		else:
+			return jsonify({
+				"msg": "No hay contratos pendientes"
+			}), 404
+
+
+@app.route('/pedidos_pendientes', methods=['GET'])
+@jwt_required()
+def handle_pedidos_pendientes():
+	if request.method == 'GET':
+		user = get_jwt_identity()
+		pedidos = Evento.query.filter_by(cliente_id=user, status_orden_progreso=True).all()
+		pedidos_existentes = list(map(lambda pedido: pedido.serialize(), pedidos))
+		if len(pedidos) > 0:
+			return jsonify(pedidos_existentes),200
+		else:
+			return jsonify({
+				"msg": "No hay pedidos pendientes"
+			}), 404
