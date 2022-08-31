@@ -30,7 +30,7 @@ export const ProviderProfile = () => {
       </div>
 
       <div className="row m-3">
-        <div className="col-8 textfont1">
+        <div className="col-8 textfont1 text-uppercase">
           <h1>{store.proveedorActual && store.proveedorActual.name}</h1>
           <div className="container-fluid my-4">
             <div className="row">
@@ -44,7 +44,7 @@ export const ProviderProfile = () => {
                   Este proveedor tiene descuento, <br></br>¡aprovecha!
                 </div>
               </div> */}
-              <div className="col-2">
+              {/* <div className="col-2">
                 <div className="form-check">
                   <input
                     className="form-check-input"
@@ -59,7 +59,7 @@ export const ProviderProfile = () => {
                     Favorito
                   </label>
                 </div>
-              </div>
+              </div> */}
             </div>
             <ProviderProfileCarousel></ProviderProfileCarousel>
             <ServiceDescription></ServiceDescription>

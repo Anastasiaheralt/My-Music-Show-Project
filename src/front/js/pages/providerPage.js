@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
 import { ProviderData } from "../component/ProviderData";
 import "./providerProfile.css";
+<<<<<<< HEAD
 import { UpImage } from "../component/upimage";
+=======
+import { Context } from "../store/appContext";
+>>>>>>> f1_Edwin
 
 const cardP = {
-  Title: "Name",
+  
+  Title: "Actualizar",
   Description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitabus neque.",
   ButtonC: "Actualizar",
 };
 
 export const ProviderPage = () => {
+
+  const { store } = useContext(Context);
+
   return (
+
     <div>
       <div className="container-fluid bgdeg p-1">
         <br />
@@ -32,8 +41,8 @@ export const ProviderPage = () => {
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{cardP.Title}</h5>
-                  <p className="card-text">{cardP.Description}</p>
+                  <h5 className="card-title">{store.user.name}</h5>
+                  <p className="card-text">{store.user.service_description}</p>
                 </div>
                 <div className="card-footer">
                   <br />
@@ -54,5 +63,5 @@ export const ProviderPage = () => {
       </div>
       <Footer />
     </div>
-  );
-};
+    );
+  };

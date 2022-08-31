@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./services.css";
-import { Context } from "../store/appContext";
+// import { Context } from "../store/appContext";
 
 export const Services = (props) => {
-  const { store, actions } = useContext(Context);
+  // const { store, actions } = useContext(Context);
   return (
     <>
       <div className="container-fluid pb-5">
@@ -24,6 +24,7 @@ export const Services = (props) => {
                 <Link to="/" className="btn btn-dark boton">
                   Detalles
                 </Link>
+
               </div>
             </div>
           </div>
