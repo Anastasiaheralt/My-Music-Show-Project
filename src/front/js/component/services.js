@@ -24,6 +24,7 @@ export const Services = (props) => {
                 <Link to="/" className="btn btn-dark boton">
                   Detalles
                 </Link>
+
               </div>
             </div>
           </div>

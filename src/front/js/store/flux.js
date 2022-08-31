@@ -8,6 +8,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       user: JSON.parse(localStorage.getItem("user")) || [],
       providerEspecifico: [],
       proveedorActual: null,
+      contratar: [],
+      contratosPendientes: [],
+      pedidosPendientes: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -218,6 +221,100 @@ const getState = ({ getStore, getActions, setStore }) => {
             const data = await resp.json();
 
             setStore({ ...store, proveedorActual: data });
+
+            return true;
+          }
+          alert("Ocurrio un error");
+          return false;
+        } catch (error) {
+          console.log("Ocurrio un error al cargar proveedores");
+        }
+      },
+
+      handleContratar: async (values) => {
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        };
+        try {
+          // fetching data from the backend
+          const resp = await fetch(
+            process.env.BACKEND_URL + "/api/contratar",
+            opts
+          );
+          if (resp.ok) {
+            window.alert("¡Contrato registrado con exito!");
+            const data = await resp.json();
+            return data;
+          }
+          return undefined;
+          // don't forget to return something, that is how the async resolves
+        } catch (error) {
+          console.log("Error loading message from backend", error);
+        }
+      },
+
+      getContratosPendientes: async () => {
+        //AGREGAR EL TOKEN EN EL BEARER SI NO, NO LES VA A FUNCIONAR, PRUEBEN EN THUNDERCLIENT Y TRAE TODO SIN FALLA
+        const store = getStore();
+        console.log(store.token);
+        const opts = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${store.token}`,
+          },
+        };
+        try {
+          const store = getStore();
+          const resp = await fetch(
+            process.env.BACKEND_URL + "/api/contratos_pendientes",
+            opts
+          );
+          if (resp.ok) {
+            const data = await resp.json();
+
+            setStore({ ...store, contratosPendientes: data });
+
+            return true;
+          }
+          alert("Ocurrio un error");
+          return false;
+        } catch (error) {
+          console.log("Ocurrio un error al cargar proveedores");
+        }
+      },
+
+      getPedidosPendientes: async () => {
+        //AGREGAR EL TOKEN EN EL BEARER SI NO, NO LES VA A FUNCIONAR, PRUEBEN EN THUNDERCLIENT Y TRAE TODO SIN FALLA
+        const store = getStore();
+        console.log(store.token);
+        const opts = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${store.token}`,
+          },
+        };
+        try {
+          const store = getStore();
+          const resp = await fetch(
+            process.env.BACKEND_URL + "/api/pedidos_pendientes",
+            opts
+          );
+          if (resp.ok) {
+            const data = await resp.json();
+
+            setStore({ ...store, pedidosPendientes: data });
+
+            // setStore({
+            //   token: data.token,
+            //   user: data.provider || data.user,
+            //   userType: data.user_type,
+            // });
 
             return true;
           }
