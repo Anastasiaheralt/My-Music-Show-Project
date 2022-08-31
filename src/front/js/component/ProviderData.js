@@ -33,11 +33,8 @@ export const ProviderData = () => {
                 placeholder={store.user.email}
               />
             </div>
-<<<<<<< HEAD
-            <div className="mb-3">
-=======
+            {/* <div className="mb-3"> */}
             <div className="mb-3 row">
->>>>>>> f1_Edwin
               <label htmlFor="disabledTextInput" className="form-label">
                 Contraseña
               </label>

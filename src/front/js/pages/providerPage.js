@@ -3,11 +3,11 @@ import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
 import { ProviderData } from "../component/ProviderData";
 import "./providerProfile.css";
-<<<<<<< HEAD
+// <<<<<<< HEAD
 import { UpImage } from "../component/upimage";
-=======
+// =======
 import { Context } from "../store/appContext";
->>>>>>> f1_Edwin
+// >>>>>>> f1_Edwin
 
 const cardP = {
   
