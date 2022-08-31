@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       providers: [],
       user: JSON.parse(localStorage.getItem("user")) || [],
       providerEspecifico: [],
+      proveedorActual: null,
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -166,7 +167,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
       getProvidersEspecifico: async (proveedor) => {
-        console.log(proveedor)
+        console.log(proveedor);
         const opts = {
           method: "GET",
           headers: {
@@ -199,6 +200,34 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+      getProviderById: async (proveedor) => {
+        console.log(proveedor);
+        const opts = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        try {
+          const store = getStore();
+          const resp = await fetch(
+            process.env.BACKEND_URL + `/api/proveedores/${proveedor}`,
+            opts
+          );
+          if (resp.ok) {
+            const data = await resp.json();
+
+            setStore({ ...store, proveedorActual: data });
+
+            return true;
+          }
+          alert("Ocurrio un error");
+          return false;
+        } catch (error) {
+          console.log("Ocurrio un error al cargar proveedores");
+        }
+      },
+
       getMessage: async () => {
         const store = getStore();
         const opts = {
@@ -221,7 +250,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error loading message from backend", error);
         }
       },
-
     },
   };
 };

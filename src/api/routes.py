@@ -64,26 +64,33 @@ def add_new_provider ():
             return jsonify(new_row.serialize()), 200
 
 
-@api.route('/provider/<string:username>', methods=['GET'])
-def handle_user(username = None):
-    print("hola")
-    print(username)
-    print(username + "soy el username")
-    if request.method == 'GET':
-        if user_id  is None:
-            users = User.query.all()
-            users = list(map(lambda user: user.serialize(), users))
-        return jsonify(users),200
-    else:
-        user = User.query.filter_by(name=username).first()
-        if user is not None:
-            return jsonify(user.serialize()),200
-        else:
-            return jsonify({
-					"msg": "user not found"
-				}), 404
+# @api.route('/provider/<string:username>', methods=['GET'])
+# def handle_user(username = None):
+#     print("hola")
+#     print(username)
+#     print(username + "soy el username")
+#     if request.method == 'GET':
+#         if user_id  is None:
+#             users = User.query.all()
+#             users = list(map(lambda user: user.serialize(), users))
+#         return jsonify(users),200
+#     else:
+#         user = User.query.filter_by(name=username).first()
+#         if user is not None:
+#             return jsonify(user.serialize()),200
+#         else:
+#             return jsonify({
+# 					"msg": "user not found"
+# 				}), 404
 
 @api.route('/admin', methods=['GET'])
 def get_all_providers ():
     all_providers = Provider.query.all()
     return jsonify([provider.serialize() for provider in all_providers]), 200
+
+@api.route('/proveedores/<int:proveedor_id>', methods=['GET'])
+def handle_user(proveedor_id):
+    if request.method == 'GET':
+        proveedor_by_id = Provider.query.get(proveedor_id)
+        return jsonify(proveedor_by_id.serialize()),200
+    return "proveedor no encontrado", 404

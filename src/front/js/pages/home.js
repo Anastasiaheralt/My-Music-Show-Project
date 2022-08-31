@@ -6,16 +6,12 @@ import { Navbar } from "./../component/navbar";
 import { Footer } from "./../component/footer";
 import { Conocenos } from "./../component/conocenos";
 import "../../styles/home.css";
+import { Destacados } from "../component/destacados";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const apinames = [];
   const apidescription = [];
-
-  // for (let i = 0; i < 4; i++) {
-  //   apinames[i] = store.providers[i];
-  // apidescription[i] = store.providers[i].description;
-  // }
 
   useEffect(() => {
     actions.getProviders();
@@ -54,7 +50,9 @@ export const Home = () => {
       <Navbar />
       <Carousel></Carousel>
       <div className="container-fluid my-2 fondo p-3">
-        <Services
+        <Destacados imagen={pictures}></Destacados>
+
+        {/* <Services
           csstitulo={"m-2 text-white"}
           titulo={titleServices[0]}
           imagen={pictures}
@@ -62,7 +60,7 @@ export const Home = () => {
           name2={apinames[1]}
           name3={apinames[2]}
           name4={apinames[3]}
-        ></Services>
+        ></Services> */}
       </div>
       <div className="container-fluid my-2">
         <Services titulo={titleServices[1]} imagen={pictures + 1}></Services>

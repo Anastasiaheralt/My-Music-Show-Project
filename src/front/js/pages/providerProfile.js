@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
 import { ProviderProfileCarousel } from "./../component/providerProfileCarousel";
 import { AddToCartModal } from "../component/addToCartModal";
 import { ServiceDescription } from "../component/serviceDescription";
@@ -11,6 +13,13 @@ import "./providerProfile.css";
 import { Presupuesto } from "./presupuesto";
 
 export const ProviderProfile = () => {
+  const { id } = useParams();
+  const { store, actions } = useContext(Context);
+
+  useEffect(() => {
+    actions.getProviderById(id);
+  }, []);
+
   return (
     <>
       <div className="container-fluid bgdeg p-1">
@@ -22,7 +31,7 @@ export const ProviderProfile = () => {
 
       <div className="row m-3">
         <div className="col-8 textfont1">
-          <h1>Hotel Humboldt</h1>
+          <h1>{store.proveedorActual && store.proveedorActual.name}</h1>
           <div className="container-fluid my-4">
             <div className="row">
               <div className="col-6">

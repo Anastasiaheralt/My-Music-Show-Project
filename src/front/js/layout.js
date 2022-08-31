@@ -28,14 +28,14 @@ const Layout = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<Terminos />} path="/terms" />
             <Route element={<Register />} path="/register" />
-            <Route element={<ProviderProfile />} path="/provider" />
+            <Route element={<ProviderProfile />} path="/provider/:id" />
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
             <Route element={<UserPage />} path="/userpage" />
             <Route element={<ProviderPage />} path="/providerpage" />
-            <Route path="/provider/:username" element={<ProviderProfile />}/>
+            <Route path="/provider/:username" element={<ProviderProfile />} />
           </Routes>
         </ScrollToTop>
       </BrowserRouter>
