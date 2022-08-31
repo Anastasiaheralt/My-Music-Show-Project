@@ -32,16 +32,13 @@ export const ProfileData = () => {
                 placeholder={store.user.email}
               />
             </div>
-            <div className="mb-3">
+            <div className="mb-3 row">
               <label htmlFor="disabledTextInput" className="form-label">
                 Contraseña
               </label>
-              <input
-                type="text"
-                id="disabledTextInput"
-                className="form-control borde"
-                placeholder="Disabled input"
-              />
+              <>
+              <button type="button" className="btn btn-primary btn-sm">Cambiar Contraseña</button>
+              </>
             </div>
           </fieldset>
         </form>

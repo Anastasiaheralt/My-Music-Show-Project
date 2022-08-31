@@ -3,8 +3,9 @@ import { Navbar } from "./../component/navbar";
 import { Footer } from "./../component/footer";
 import { ProfileData } from "../component/profileData";
 import "./providerProfile.css";
+// import { Context } from "../store/appContext";
 
-const card = {
+const card = { 
   Title: "Name",
   Description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitabus neque.",
@@ -12,6 +13,9 @@ const card = {
 };
 
 export const UserPage = () => {
+
+  // const { store } = useContext(Context);
+
   return (
     <div>
       <div className="container-fluid bgdeg p-1">
@@ -38,7 +42,7 @@ export const UserPage = () => {
                   <br />
                   <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" className="btn btn-dark w-50 boton">
-                      {card.ButtonC}
+                    {card.ButtonC}
                     </button>
                   </div>
                 </div>

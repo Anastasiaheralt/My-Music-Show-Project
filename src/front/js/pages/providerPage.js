@@ -12,7 +12,9 @@ const cardP = {
 };
 
 export const ProviderPage = () => {
+
   return (
+
     <div>
       <div className="container-fluid bgdeg p-1">
         <br />
@@ -52,5 +54,5 @@ export const ProviderPage = () => {
       </div>
       <Footer />
     </div>
-  );
-};
+    );
+  };

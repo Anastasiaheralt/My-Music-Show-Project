@@ -19,8 +19,8 @@ export const Destacados = (props) => {
                     <img src={props.imagen + 2} />
                   </div>
                   <div className="card-body">
-                    <h5 className="card-title">{provider.name}</h5>
-                    <p className="card-text">{provider.service_description}</p>
+                    <h5 className=" text-uppercase card-title">{provider.name}</h5>
+                    <p className=" fst-italic text-uppercase card-text">{provider.service}</p>
                     <Link
                       className="btn btn-dark boton"
                       to={`/provider/${provider.id}`}
