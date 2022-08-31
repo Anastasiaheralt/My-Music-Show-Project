@@ -14,9 +14,9 @@ export const Destacados = (props) => {
           <div className="container-fluid pb-5">
             <div className="row">
               <div className="col">
-                <div className="card" key={`servicio-${provider.name}`}>
+                <div className="card" key={`servicio-${provider.id}`}>
                   <div className="card-header bg-white text-center">
-                    <img src={props.imagen + 2} />
+                    <img src={props.imagen + provider.id} />
                   </div>
                   <div className="card-body">
                     <h5 className="card-title">{provider.name}</h5>

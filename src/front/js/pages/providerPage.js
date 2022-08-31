@@ -3,6 +3,7 @@ import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
 import { ProviderData } from "../component/ProviderData";
 import "./providerProfile.css";
+import { UpImage } from "../component/upimage";
 
 const cardP = {
   Title: "Name",
@@ -47,6 +48,7 @@ export const ProviderPage = () => {
           </div>
           <div className="col-9">
             <ProviderData />
+            <UpImage />
           </div>
         </div>
       </div>
