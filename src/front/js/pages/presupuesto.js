@@ -48,7 +48,7 @@ export const Presupuesto = () => {
             <label for="date">Fecha</label>
             <input className="form-control m-2 btbr" type="date" />
 
-            <label for="department">Servicio</label>
+            <label for="Departmento">Servicio</label>
             <select
               name="department"
               id="department"
@@ -63,20 +63,20 @@ export const Presupuesto = () => {
               >
                 Selecciona Servicio
               </option>
-              <option value="Front Desk" className="form-control m-2 btbr">
+              <option value="Musica" className="form-control m-2 btbr">
                 Música
               </option>
-              <option value="Customer Care" className="form-control m-2 btbr">
+              <option value="Catering" className="form-control m-2 btbr">
                 Catering
               </option>
               <option
-                value="Shipping Receiving"
+                value="Fotografia"
                 className="form-control m-2 btbr"
               >
                 Fotografía
               </option>
               <option
-                value="Billing Accounting"
+                value="Locaciones"
                 className="form-control m-2 btbr"
               >
                 Locaciones
