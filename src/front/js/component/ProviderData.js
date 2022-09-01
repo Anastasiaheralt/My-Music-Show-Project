@@ -38,7 +38,9 @@ export const ProviderData = () => {
                 Contraseña
               </label>
               <>
-              <button type="button" className="btn btn-primary btn-sm">Cambiar Contraseña</button>
+                <button type="button" className="btn btn-dark borde btn-sm">
+                  Cambiar Contraseña
+                </button>
               </>
             </div>
 

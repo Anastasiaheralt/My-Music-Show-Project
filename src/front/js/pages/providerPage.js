@@ -9,7 +9,6 @@ import { UpImage } from "../component/upimage";
 import { Context } from "../store/appContext";
 
 const cardP = {
-  
   Title: "Actualizar",
   Description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitabus neque.",
@@ -17,11 +16,9 @@ const cardP = {
 };
 
 export const ProviderPage = () => {
-
   const { store } = useContext(Context);
 
   return (
-
     <div>
       <div className="container-fluid bgdeg p-1">
         <br />
@@ -29,9 +26,9 @@ export const ProviderPage = () => {
         <br />
         <Navbar />
       </div>
-      <div className="container-fluid my-4">
+      <div className="container-fluid my-2">
         <div className="row">
-          <div className="col-3">
+          <div className="col-4">
             <div className="container">
               <div className="card" /*style="width: 18rem"*/>
                 <img
@@ -45,22 +42,22 @@ export const ProviderPage = () => {
                 </div>
                 <div className="card-footer">
                   <br />
-                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                  <div className="d-flex justify-content-center mx-1 mb-3 mb-lg-4">
                     <button type="submit" className="btn btn-dark w-50 boton">
                       {cardP.ButtonC}
                     </button>
                   </div>
                 </div>
               </div>
+              <UpImage />
             </div>
           </div>
-          <div className="col-9">
+          <div className="col-8">
             <ProviderData />
-            <UpImage />
           </div>
         </div>
       </div>
       <Footer />
     </div>
-    );
-  };
+  );
+};
