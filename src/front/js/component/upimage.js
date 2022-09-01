@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "../store/appContext";
 
 export const UpImage = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [state, setState] = useState("");
   const url = `https://api.cloudinary.com/v1_1/solventemos-inc/image/upload`;
+  const { store, actions } = useContext(Context);
+  
   const uploadImage = () => {
-    const formData = new FormData();
+  const formData = new FormData();
     formData.append("file", selectedFile);
     formData.append("upload_preset", "my_music_show");
 
@@ -20,8 +23,15 @@ export const UpImage = () => {
         console.log("data: ", data);
         setState(data.url);
       })
-      .catch((error) => console.log(error));
-  };
+      .catch((error));
+    };
+
+  useEffect(() => {
+        actions.uploadApiImage(state)
+  }, []);
+  // Hacer un useEffect cuyo arreglo de dependencia va a ser el State de la linea 21
+  //Hacer un fetch con un PUT a la tabla de nuestra API 
+  //
 
   return (
     <div>

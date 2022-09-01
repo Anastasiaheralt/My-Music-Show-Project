@@ -30,8 +30,6 @@ class User(db.Model):
             print(error)
             return None
 
-#EN el repo del diario, el code de main debe ir en routes en este proyecto. 
-#Mirar el classmethods del diairo y de las entradas
 
     # def __repr__(self):
     #     return f'<User {self.email}>'
@@ -67,8 +65,7 @@ class Provider(db.Model):
         self.terms = terms
         self.provider_charges = provider_charges
         self.service_description = service_description
-        #self.provider_charges = provider_charges
-#Agregar como ultimo argumento "provider_charges en lineas 65 y 66"
+
 
     @classmethod
     def new_provider(cls, name, email, password, service, terms, provider_charges, service_description):
@@ -92,12 +89,41 @@ class Provider(db.Model):
             "terms": self.terms,
             "provider_charges": self.provider_charges,
             "service_description": self.service_description,
+            "fotos":  [ foto.serialize() for foto in self.images]
             
 
             # do not serialize the password, its a security breach
         }
 
+class Provider_images(db.Model):
+    __tablename__ = 'provider_images'
+    id = db.Column(db.Integer, primary_key=True)
+    provider_id = db.Column(db.Integer, db.ForeignKey('provider.id'), nullable=False)
+    photo_url = db.Column(db.String(2500), unique=False, nullable=False)
+    proveedor = db.relationship("Provider", backref="images")
 
+    def __init__(self, provider_id, photos_url):
+            self.provider_id = provider_id
+            self.photo_url = photo_url
+
+    @classmethod
+    def new_image(cls, provider_id, photo_url):
+        new_provider = cls(provider_id, photo_url)
+        db.session.add(new_provider)
+        try:
+            db.session.commit()
+            return new_image
+        except Exception as error:
+            print(error)
+            return None   
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "provider_id": self.provider_id,
+            "photo_url": self.photo_url
+
+        }
 # class Event2(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
 #     # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)

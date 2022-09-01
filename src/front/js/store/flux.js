@@ -1,3 +1,5 @@
+import { responsivePropType } from "react-bootstrap/esm/createUtilityClasses";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -169,6 +171,35 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Ocurrio un error al cargar proveedores");
         }
       },
+
+      uploadApiImage: async (urlImage) => {
+        const store = getStore();
+        const opts = {
+          method: 'PUT', 
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            provider_id: store.user.id,
+            photo_url: urlImage
+          }),
+      };
+      try {
+        const resp = await fetch(process.env.BACKEND_URL + `/provider_images/`,
+        opts);
+        if (resp.ok) {
+            console.log('Imagen  de proveedor cargada exitosamente')
+        }
+        else {
+          console.log('Ha ocurrido un error al cargar su imagen')
+        }
+      } 
+        catch (error) {
+          console.log('Hubo un error al intentar el fetch jeje')
+      }
+},
+      
+
       getProvidersEspecifico: async (proveedor) => {
         console.log(proveedor);
         const opts = {
@@ -324,31 +355,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Ocurrio un error al cargar proveedores");
         }
       },
-
-      getMessage: async () => {
-        const store = getStore();
-        const opts = {
-          headers: {
-            Authorization: "Bearer " + store.token,
-          },
-        };
-
-        try {
-          // fetching data from the backend
-          const resp = await fetch(
-            process.env.BACKEND_URL + "/api/hello",
-            opts
-          );
-          const data = await resp.json();
-          setStore({ message: data.message });
-          // don't forget to return something, that is how the async resolves
-          return data;
-        } catch (error) {
-          console.log("Error loading message from backend", error);
-        }
-      },
+      
     },
   };
 };
+
 
 export default getState;

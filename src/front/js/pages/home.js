@@ -15,9 +15,7 @@ export const Home = () => {
 
   useEffect(() => {
     actions.getProviders();
-    if (store.token && store.token != "" && store.token != undefined)
-      actions.getMessage();
-  }, [store.token]);
+  },[]);
 
   console.log(store.providers);
 
