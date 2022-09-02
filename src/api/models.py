@@ -102,17 +102,17 @@ class Provider_images(db.Model):
     photo_url = db.Column(db.String(2500), unique=False, nullable=False)
     proveedor = db.relationship("Provider", backref="images")
 
-    def __init__(self, provider_id, photos_url):
-            self.provider_id = provider_id
-            self.photo_url = photo_url
+    def __init__(self, provider_id, photo_url):
+        self.provider_id = provider_id
+        self.photo_url = photo_url
 
     @classmethod
     def new_image(cls, provider_id, photo_url):
-        new_provider = cls(provider_id, photo_url)
-        db.session.add(new_provider)
+        new_photo = cls(provider_id, photo_url)
+        db.session.add(new_photo)
         try:
             db.session.commit()
-            return new_image
+            return new_photo
         except Exception as error:
             print(error)
             return None   
@@ -124,26 +124,6 @@ class Provider_images(db.Model):
             "photo_url": self.photo_url
 
         }
-# class Event2(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
-#     # provider_id = db.Column(db.Integer, db.ForeignKey('provider.id'), nullable=True)
-#     # provider_charges_id = db.Column(db.Integer, db.ForeignKey('provider_charges.id'), nullable=True)
-#     # payment_screenshot = db.Column(db.String(250), unique=False, nullable=False)
-    
-#     # is_active = db.Column(db.Boolean(), unique=False, nullable=False)
-
-#     # def __repr__(self):
-#     #     return f'<Event {self.email}>'
-
-#     def serialize(self):
-#         return {
-#             "id": self.id
-#             # "user_id": self.user_id,
-#             # "provider_id": self.provider_id,
-#             # "provider_charges_id": provider_charges_id,
-#             # do not serialize the password, its a security breach
-#         }
 
 
 class Evento(db.Model):

@@ -24,12 +24,13 @@ export const UpImage = () => {
         console.log("data: ", data);
         setState(data.url);
       })
-      .catch(error);
+      .catch(error => console.log(error));
   };
 
   useEffect(() => {
-    actions.uploadApiImage(state);
-  }, []);
+    if (state.length > 0) {
+    actions.uploadApiImage(state)};
+  }, [state]);
   // Hacer un useEffect cuyo arreglo de dependencia va a ser el State de la linea 21
   //Hacer un fetch con un PUT a la tabla de nuestra API
   //

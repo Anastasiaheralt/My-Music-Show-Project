@@ -17,7 +17,6 @@ export const Registerclient = () => {
 
   const onSubmit = (data) => {
     actions.addRegister(data);
-    console.log(data);
     navigate("/");
   };
 

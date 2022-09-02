@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Provider, Evento
+from api.models import db, User, Provider, Evento, Provider_images
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -134,10 +134,17 @@ def handle_user(proveedor_id):
         return jsonify(proveedor_by_id.serialize()), 200
 
 
-@api.route('/provider_images', methods=['PUT'])
-def handle_photos(provider_id, photo_url):
-		new_provider_photo = Provider_images.new_entry(body['provider_id'], body['photo_url'])
-		return "Se ha cargado exitosamente la imagen", 200
+@api.route('/provider_images', methods=['POST'])
+def handle_photos():
+    body = request.json
+
+    body_proveedor = body.get("provider_id", None)
+    photo_url = body.get("url", None)
+    print(body_proveedor)
+    print(photo_url)
+    new_provider_photo = Provider_images.new_image(body['provider_id'], body['url'])
+        
+    return "Se ha cargado exitosamente la imagen", 200
 
     # else:
     # 	return 'Ah ocurrido un error al crear la entrada', 500

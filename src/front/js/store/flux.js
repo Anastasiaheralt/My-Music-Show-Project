@@ -175,30 +175,29 @@ const getState = ({ getStore, getActions, setStore }) => {
       uploadApiImage: async (urlImage) => {
         const store = getStore();
         const opts = {
-          method: 'PUT', 
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             provider_id: store.user.id,
-            photo_url: urlImage
+            url: urlImage,
           }),
-      };
-      try {
-        const resp = await fetch(process.env.BACKEND_URL + `/provider_images/`,
-        opts);
-        if (resp.ok) {
-            console.log('Imagen  de proveedor cargada exitosamente')
+        };
+        try {
+          const resp = await fetch(
+            process.env.BACKEND_URL + `/api/provider_images/`,
+            opts
+          );
+          if (resp.ok) {
+            console.log("Imagen  de proveedor cargada exitosamente");
+          } else {
+            console.log("Ha ocurrido un error al cargar su imagen");
+          }
+        } catch (error) {
+          console.log("Hubo un error al intentar el fetch jeje");
         }
-        else {
-          console.log('Ha ocurrido un error al cargar su imagen')
-        }
-      } 
-        catch (error) {
-          console.log('Hubo un error al intentar el fetch jeje')
-      }
-},
-      
+      },
 
       getProvidersEspecifico: async (proveedor) => {
         console.log(proveedor);
@@ -235,7 +234,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getProviderById: async (proveedor) => {
-        console.log(proveedor);
         const opts = {
           method: "GET",
           headers: {
@@ -250,7 +248,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           );
           if (resp.ok) {
             const data = await resp.json();
-
+            console.log(data);
             setStore({ ...store, proveedorActual: data });
 
             return true;
@@ -296,7 +294,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${store.token}`,
+            Authorization: `Bearer ${store.token}`,
           },
         };
         try {
@@ -327,7 +325,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${store.token}`,
+            Authorization: `Bearer ${store.token}`,
           },
         };
         try {
@@ -355,10 +353,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Ocurrio un error al cargar proveedores");
         }
       },
-      
     },
   };
 };
-
 
 export default getState;

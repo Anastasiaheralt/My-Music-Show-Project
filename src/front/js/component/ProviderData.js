@@ -1,9 +1,16 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import "./register.css";
 import { Context } from "../store/appContext";
 
 export const ProviderData = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
+  console.log("no entra");
+  useEffect(() => {
+    console.log("id:", store.user?.id);
+    if (store.user) {
+      actions.getProviderById(store.user.id);
+    }
+  }, [store.user.id]);
 
   return (
     <div className="container d-flex fuente2">
@@ -84,41 +91,22 @@ export const ProviderData = () => {
                 <div className="container px-4 text-center">
                   <div className="row gx-5">
                     <div className="col">
-                      <div className="p-3 border bg-light">
-                        <img
-                          src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                          className="img-fluid"
-                          alt="..."
-                        ></img>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="p-3 border bg-light">
-                        <img
-                          src="https://images.unsplash.com/photo-1615966650071-855b15f29ad1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1266&q=80"
-                          className="img-thumbnail"
-                          alt="..."
-                        ></img>
-                      </div>
-                      <div className="col">
-                        <div className="p-3 border bg-light">
-                          <img
-                            src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                            className="img-thumbnail"
-                            alt="..."
-                          ></img>
-                        </div>
-                      </div>
-
-                      <div className="col">
-                        <div className="p-3 border bg-light">
-                          <img
-                            src="https://images.unsplash.com/photo-1632054554177-a708126072c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                            className="img-thumbnail"
-                            alt="..."
-                          ></img>
-                        </div>
-                      </div>
+                      {console.log(store.proveedorActual)}
+                      {store.proveedorActual &&
+                        Object.entries(store.proveedorActual?.fotos).map(
+                          ([key, value], index) => {
+                            console.log(value);
+                            return (
+                              <div className="p-3 border bg-light" key={index}>
+                                <img
+                                  src={value.photo_url}
+                                  className="img-fluid"
+                                  alt="..."
+                                ></img>
+                              </div>
+                            );
+                          }
+                        )}
                     </div>
                   </div>
                 </div>

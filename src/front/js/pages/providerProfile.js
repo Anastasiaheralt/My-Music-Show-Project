@@ -18,7 +18,7 @@ export const ProviderProfile = () => {
 
   useEffect(() => {
     actions.getProviderById(id);
-  }, []);
+  }, [id]);
 
   return (
     <>

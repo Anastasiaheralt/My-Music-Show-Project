@@ -17,7 +17,6 @@ export const Registerprovider = () => {
 
   const onSubmit = (data) => {
     actions.addRegisterProvider(data);
-    console.log(data);
     alert("Registro Exitoso");
     navigate("/");
   };
