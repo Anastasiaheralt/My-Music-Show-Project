@@ -86,7 +86,7 @@ export const ProviderData = () => {
               />
             </div>
             <div>
-              Eventos
+              Mi portafolio
               <div>
                 <div className="container px-4 text-center">
                   <div className="row gx-5">
