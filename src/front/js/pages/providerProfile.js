@@ -58,24 +58,26 @@ export const ProviderProfile = () => {
               </div> */}
             </div>
 
-            <div className=" col-lg-6 col-md-12">
-              {console.log(store.proveedorActual)}
-              {store.proveedorActual &&
-                Object.entries(store.proveedorActual?.fotos).map(
-                  ([key, value], index) => {
-                    console.log(value);
-                    return (
-                      <div className="m-1 border bg-light" key={index}>
-                        <img
-                          src={value.photo_url}
-                          className="img-fluid"
-                          alt="..."
-                          width="500px"
-                        ></img>
-                      </div>
-                    );
-                  }
-                )}
+            <div className="row">
+              <div className=" col  d-flex ">
+                {console.log(store.proveedorActual)}
+                {store.proveedorActual &&
+                  Object.entries(store.proveedorActual?.fotos).map(
+                    ([key, value], index) => {
+                      console.log(value);
+                      return (
+                        <div className="col-4 m-1  border bg-light" key={index}>
+                          <img
+                            src={value.photo_url}
+                            className="img-fluid"
+                            alt="..."
+                            width="500px"
+                          ></img>
+                        </div>
+                      );
+                    }
+                  )}
+              </div>
             </div>
             <div className="container-fluid mt-3 textfont">
               <h4>Descripcion del servicio</h4>
