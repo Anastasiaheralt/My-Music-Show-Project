@@ -30,14 +30,14 @@ export const Home = () => {
   const pictures = "https://picsum.photos/200?random=";
 
   const photonames = [
-    "Maria Teresa Monasterios",
+    "María Teresa Monasterios",
     "Orlando Navas",
-    "Edwing Castillo",
-    "Danner Baron",
+    "Edwin Castillo",
+    "Danner Barón",
   ];
 
   const locationnames = [
-    "La Estancia de Bolivar",
+    "La Estancia de Bolívar",
     "Ara Merú Lodge",
     "Hotel Humboldt",
     "Bora La Mar",
@@ -91,9 +91,9 @@ export const Home = () => {
           imagen={pictures + 4}
         ></Services>
       </div>
-      <div className="alert alert-info">
-        {store.message || "inicia sesion para ver el mensaje del backend"}
-      </div>
+      {/* <div className="alert alert-info">
+        {/* //{store.message || "inicia sesion para ver el mensaje del backend"} *
+      </div> */}
       <Conocenos />
       <Footer />
     </div>

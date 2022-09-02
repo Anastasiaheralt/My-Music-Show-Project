@@ -16,9 +16,8 @@ export const Conocenos = () => {
           Conoce más sobre <br /> MyMusicShow{" "}
         </h1>
         <p className="texto21">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-          sed voluptatem dolor id error quam molestiae, earum est a eligendi
-          officia. Ipsum ducimus vel sed ex, fugit culpa quam
+          MyMusicShow nació hace un par de años cuando Jesús, uno de sus fundadores, quería contratar Mariachis para  y no pudo encontrarlos. Surgió entonces la idea de crear un lugar donde muchos usuarios pudieran encontrar a la mejor banda musical en cuestión de segundos. 
+          <br/><br/> El proyecto creció rápidamente y nos dimos cuenta que donde hay música, también debe haber comida, y seguramente fotógrafos para recordar ese momento. Así que MyMusicShow creció y se convirtió en el sitio donde puedes organizar tus eventos.  
         </p>
       </div>
     </div>

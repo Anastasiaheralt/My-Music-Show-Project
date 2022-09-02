@@ -48,36 +48,36 @@ export const Carousel = () => {
               <img src={CARO1} className="w-100 qlq" alt="1" />
             </div>
             <div className="carousel-caption bc d-none d-md-block">
-              <h1>Todo lo que necesitas</h1>
+              <h1>Tu evento ideal está a unos click de distancia</h1>
               <p>
-                Some representative placeholder content for the first slide.
+                Tenemos lo que necesitas para crear la mejor experiencia para tus familiares y amigos. 
               </p>
             </div>
           </div>
           <div className="carousel-item justify-content-center">
             <img src={CARO2} className="d-block w-100" alt="2" />
             <div className="carousel-caption bc d-none d-md-block">
-              <h5>Second slide label</h5>
+              <h1>Contrata servicios de calidad</h1>
               <p>
-                Some representative placeholder content for the second slide.
+                Pasea por los perfiles de músicos, conoce su talento y trayectoria. 
               </p>
             </div>
           </div>
           <div className="carousel-item justify-content-center">
             <img src={CARO3} className="d-block w-100" alt="3" />
             <div className="carousel-caption bc d-none d-md-block">
-              <h5>Third slide label</h5>
+              <h1>¡Haz crecer tu marca!</h1>
               <p>
-                Some representative placeholder content for the third slide.
+              Regístrate como proveedor y llega a muchos más clientes al instante.
               </p>
             </div>
           </div>
           <div className="carousel-item justify-content-center">
             <img src={CARO4} className="d-block w-100" alt="4" />
             <div className="carousel-caption bc d-none d-md-block">
-              <h5>4th slide label</h5>
+              <h1>Conviértete en el alma de la fiesta</h1>
               <p>
-                Some representative placeholder content for the third slide.
+              Organiza fácilmente conciertos y reuniones involvidables
               </p>
             </div>
           </div>

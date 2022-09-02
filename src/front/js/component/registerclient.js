@@ -95,7 +95,7 @@ export const Registerclient = () => {
                         )}
                         {errors.password?.type === "minLength" && (
                           <p className="text-danger mx-auto">
-                            La contraseña debe tener un minimo de 8 caracteres
+                            La contraseña debe tener un mínimo de 8 caracteres
                           </p>
                         )}
                       </div>
@@ -113,7 +113,7 @@ export const Registerclient = () => {
                         htmlFor="form2Example32"
                       >
                         Confirmo y acepto los
-                        <Link to="/terms"> Terminos y condiciones</Link>
+                        <Link to="/terms"> Términos y condiciones</Link>
                       </label>
                     </div>
                     {activarRegistro && (
