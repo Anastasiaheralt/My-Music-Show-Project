@@ -275,7 +275,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             opts
           );
           if (resp.ok) {
-            window.alert("¡Contrato registrado con exito!");
+            // window.alert("¡Contrato registrado con exito!");
             const data = await resp.json();
             return data;
           }

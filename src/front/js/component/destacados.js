@@ -30,7 +30,44 @@ export const Destacados = (props) => {
     actions.getPedidosPendientes();
   };
 
+  const [modalData, setModalData] = useState([]);
+
   return (
+        <>
+
+<div
+        className="modal fade"
+        id="exampleModal3"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-body px-5">
+              <div className="text-center my-3">
+                <i className="fa-solid fa-gear fa-5x my-2"></i>
+                <h3> {`Usted a contratado a ${modalData.name} para el servicio de ${modalData.service}`} </h3>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+                onClick={() => {}}
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
     <div className="textfont">
       <h1 className="text-white">Destacados</h1>
       <div className="d-flex container-fluid ">
@@ -49,12 +86,27 @@ export const Destacados = (props) => {
                     <h6 className=" fst-italic text-uppercase card-text">
                       {provider.service}
                     </h6>
+                    
+                                <button
+                                  type="button"
+                                  className="btn btn-dark boton"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#exampleModal3"
+                                  onClick={() => { setModalData(provider), handleSubmitContrato({
+                                    proveedor_id: provider.id,
+                                    user_id: store.user.id,
+                                  }) }}
+                                >
+                                Contratar
+                                </button>
+                    
                     <Link
                       className="btn btn-dark boton"
                       to={`/provider/${provider.id}`}
                     >
                       Detalles
                     </Link>
+                    
                     {/* <button
                       className="btn status"
                       data-bs-toggle="modal"
@@ -88,8 +140,10 @@ export const Destacados = (props) => {
               </div>
             </div>
           </div>
+
+          
         ))}
       </div>
     </div>
-  );
+</>  );
 };
