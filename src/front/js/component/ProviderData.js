@@ -4,9 +4,8 @@ import { Context } from "../store/appContext";
 
 export const ProviderData = () => {
   const { store, actions } = useContext(Context);
-  console.log("no entra");
+
   useEffect(() => {
-    console.log("id:", store.user?.id);
     if (store.user) {
       actions.getProviderById(store.user.id);
     }
@@ -86,22 +85,23 @@ export const ProviderData = () => {
               />
             </div>
             <div>
-              Mi portafolio
+              <h6>Mi portafolio</h6>
               <div>
-                <div className="container px-4 text-center">
+                <div className="container p-1 text-center">
                   <div className="row gx-5">
-                    <div className="col">
+                    <div className="col m-1 d-flex">
                       {console.log(store.proveedorActual)}
                       {store.proveedorActual &&
                         Object.entries(store.proveedorActual?.fotos).map(
                           ([key, value], index) => {
                             console.log(value);
                             return (
-                              <div className="p-3 border bg-light" key={index}>
+                              <div className="m-1 border bg-light" key={index}>
                                 <img
                                   src={value.photo_url}
                                   className="img-fluid"
                                   alt="..."
+                                  width="150px"
                                 ></img>
                               </div>
                             );
@@ -116,11 +116,14 @@ export const ProviderData = () => {
         </form>
       </div>
       <div className="col-6 m-3 p-3">
-        <div className="list-group">
+        <div className="list-group borde2">
+          <div className="text-center borde2 bg-light p-2">
+            <h5>Eventos Finalizados</h5>
+          </div>
           <a
             href="#"
-            className="list-group-item list-group-item-action active"
-            aria-current="true"
+            className="list-group-item list-group-item-action"
+            // aria-current="true"
           >
             <div className="d-flex w-100 justify-content-between">
               <h5 className="mb-1">Boda Ramírez</h5>
@@ -129,7 +132,7 @@ export const ProviderData = () => {
           </a>
           <a href="#" className="list-group-item list-group-item-action">
             <div className="d-flex w-100 justify-content-between">
-              <h5 className="mb-1">Grduación ULA</h5>
+              <h5 className="mb-1">Graduación ULA</h5>
               <small className="text-muted">21 days ago</small>
             </div>
           </a>

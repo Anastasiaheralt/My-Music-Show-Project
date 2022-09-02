@@ -21,10 +21,11 @@ export const Services = (props) => {
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
-                <Link to="/" className="btn btn-dark boton">
-                  Detalles
-                </Link>
-
+                <div className="text-center">
+                  <Link to="/" className="btn btn-dark boton">
+                    Detalles
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -40,9 +41,11 @@ export const Services = (props) => {
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
-                <Link to="/" className="btn btn-dark boton">
-                  Detalles
-                </Link>
+                <div className="text-center">
+                  <Link to="/" className="btn btn-dark boton">
+                    Detalles
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -58,9 +61,11 @@ export const Services = (props) => {
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
-                <Link to="/" className="btn btn-dark boton">
-                  Detalles
-                </Link>
+                <div className="text-center">
+                  <Link to="/" className="btn btn-dark boton">
+                    Detalles
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -76,9 +81,11 @@ export const Services = (props) => {
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
-                <Link to="/" className="btn btn-dark boton">
-                  Detalles
-                </Link>
+                <div className="text-center">
+                  <Link to="/" className="btn btn-dark boton">
+                    Detalles
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

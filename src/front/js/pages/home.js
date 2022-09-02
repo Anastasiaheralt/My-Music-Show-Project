@@ -5,19 +5,15 @@ import { Carousel } from "./../component/carousel";
 import { Navbar } from "./../component/navbar";
 import { Footer } from "./../component/footer";
 import { Conocenos } from "./../component/conocenos";
-import "../../styles/home.css";
 import { Destacados } from "../component/destacados";
+import "../../styles/home.css";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  const apinames = [];
-  const apidescription = [];
 
   useEffect(() => {
     actions.getProviders();
-  },[]);
-
-  console.log(store.providers);
+  }, []);
 
   const titleServices = [
     "Destacados",
@@ -28,6 +24,13 @@ export const Home = () => {
   ];
 
   const pictures = "https://picsum.photos/200?random=";
+
+  const musicNames = [
+    "Dj. Samú",
+    "Mariachi Vale",
+    "Song Music Fiesta",
+    "MusicLand",
+  ];
 
   const photonames = [
     "Maria Teresa Monasterios",
@@ -43,25 +46,29 @@ export const Home = () => {
     "Bora La Mar",
   ];
 
+  const cateringNames = [
+    "Catering Juan Blanco",
+    "D' Valeria",
+    "Life Gourmet",
+    "Patagonia Grill",
+  ];
+
   return (
     <div>
       <Navbar />
       <Carousel></Carousel>
       <div className="container-fluid my-2 fondo p-3">
         <Destacados imagen={pictures}></Destacados>
-
-        {/* <Services
-          csstitulo={"m-2 text-white"}
-          titulo={titleServices[0]}
-          imagen={pictures}
-          name1={apinames[0]}
-          name2={apinames[1]}
-          name3={apinames[2]}
-          name4={apinames[3]}
-        ></Services> */}
       </div>
       <div className="container-fluid my-2">
-        <Services titulo={titleServices[1]} imagen={pictures + 1}></Services>
+        <Services
+          titulo={titleServices[1]}
+          imagen={pictures + 1}
+          name1={musicNames[0]}
+          name2={musicNames[1]}
+          name3={musicNames[2]}
+          name4={musicNames[3]}
+        ></Services>
       </div>
       <div className="container-fluid my-2 fondo p-3">
         <Services
@@ -89,10 +96,11 @@ export const Home = () => {
           csstitulo={"m-2 text-white"}
           titulo={titleServices[4]}
           imagen={pictures + 4}
+          name1={cateringNames[0]}
+          name2={cateringNames[1]}
+          name3={cateringNames[2]}
+          name4={cateringNames[3]}
         ></Services>
-      </div>
-      <div className="alert alert-info">
-        {store.message || "inicia sesion para ver el mensaje del backend"}
       </div>
       <Conocenos />
       <Footer />

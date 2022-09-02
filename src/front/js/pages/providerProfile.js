@@ -1,14 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { ProviderProfileCarousel } from "./../component/providerProfileCarousel";
-import { AddToCartModal } from "../component/addToCartModal";
-import { ServiceDescription } from "../component/serviceDescription";
 import { UserFeedback } from "../component/userFeedback";
 import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+
 import "./providerProfile.css";
 import { Presupuesto } from "./presupuesto";
 
@@ -35,9 +31,9 @@ export const ProviderProfile = () => {
           <div className="container-fluid my-4">
             <div className="row">
               <div className="col-6">
-                <p className="text">
+                <h5 className="text">
                   Costo: <strong className="text-success">600$ - 2000$</strong>{" "}
-                </p>
+                </h5>
               </div>
               {/* <div className="col-2">
                 <div className="alert alert-info" role="alert">
@@ -61,12 +57,41 @@ export const ProviderProfile = () => {
                 </div>
               </div> */}
             </div>
-            <ProviderProfileCarousel></ProviderProfileCarousel>
-            <ServiceDescription></ServiceDescription>
-            <UserFeedback></UserFeedback>
+
+            <div className=" col-lg-6 col-md-12">
+              {console.log(store.proveedorActual)}
+              {store.proveedorActual &&
+                Object.entries(store.proveedorActual?.fotos).map(
+                  ([key, value], index) => {
+                    console.log(value);
+                    return (
+                      <div className="m-1 border bg-light" key={index}>
+                        <img
+                          src={value.photo_url}
+                          className="img-fluid"
+                          alt="..."
+                          width="500px"
+                        ></img>
+                      </div>
+                    );
+                  }
+                )}
+            </div>
+            <div className="container-fluid mt-3 textfont">
+              <h4>Descripcion del servicio</h4>
+              <p className="text-wrap fs-6 text">
+                {store.proveedorActual &&
+                  store.proveedorActual.service_description}
+              </p>
+            </div>
+            <div className="p-2">
+              <UserFeedback />
+              <UserFeedback />
+              <UserFeedback />
+            </div>
           </div>
         </div>
-        <div className="col-4 justify-content-center">
+        <div className="col-4 justify-content-center textfont12">
           <br />
           <br />
           <br /> <br />

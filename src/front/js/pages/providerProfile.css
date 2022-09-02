@@ -7,6 +7,12 @@
   font-weight: 300;
   color: black;
 }
+.textfont12 {
+  font-family: "Ubuntu", cursive;
+  font-weight: 300;
+  color: black;
+  font-size: 14px;
+}
 
 .btbr {
   border-radius: 35px;

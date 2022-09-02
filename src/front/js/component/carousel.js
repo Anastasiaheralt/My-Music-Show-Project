@@ -55,23 +55,21 @@ export const Carousel = () => {
           <div className="carousel-item justify-content-center">
             <img src={CARO2} className="d-block w-100" alt="2" />
             <div className="carousel-caption bc d-none d-md-block">
-              <h5></h5>
-              <p>¡Tu directorio de proveedores!</p>
+              <h1>¡Tu directorio de proveedores!</h1>
+              <p>¡La banda soñada para esa ocasion especial!</p>
             </div>
           </div>
           <div className="carousel-item justify-content-center">
             <img src={CARO3} className="d-block w-100" alt="3" />
             <div className="carousel-caption bc d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Some representative placeholder content for the third slide.
-              </p>
+              <h1>Un servicio inolvidable</h1>
+              <p></p>
             </div>
           </div>
           <div className="carousel-item justify-content-center">
             <img src={CARO4} className="d-block w-100" alt="4" />
             <div className="carousel-caption bc d-none d-md-block">
-              <h5>4th slide label</h5>
+              <h1>4th slide label</h1>
               <p>
                 Some representative placeholder content for the third slide.
               </p>

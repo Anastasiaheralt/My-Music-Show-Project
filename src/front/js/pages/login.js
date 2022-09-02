@@ -44,14 +44,14 @@ export const Login = () => {
               <form>
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="form2Example1">
-                    Username/Email
+                    Email
                   </label>
                   <input
                     type="email"
                     value={email}
                     onChange={(i) => setEmail(i.target.value)}
                     id="form2Example1"
-                    className="form-control"
+                    className="form-control borde"
                   />
                 </div>
 
@@ -64,7 +64,7 @@ export const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     id="form2Example2"
-                    className="form-control"
+                    className="form-control borde"
                   />
                 </div>
 
@@ -77,16 +77,14 @@ export const Login = () => {
                         value=""
                         id="form2Example31"
                         checked
-                        onChange={() => {
-                          console.log("no dio tiempo ivan");
-                        }}
+                        onChange={() => {}}
                       />
                       <label
                         className="form-check-label"
                         htmlFor="form2Example31"
                       >
                         {" "}
-                        Remember me{" "}
+                        Recordar Contraseña{" "}
                       </label>
                     </div>
                   </div>

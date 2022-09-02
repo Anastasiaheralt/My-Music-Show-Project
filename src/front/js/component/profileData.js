@@ -1,6 +1,7 @@
-import React, {useContext} from 'react';
+import React, { useContext } from "react";
 import "./register.css";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 export const ProfileData = () => {
   const { store } = useContext(Context);
@@ -37,7 +38,9 @@ export const ProfileData = () => {
                 Contraseña
               </label>
               <>
-              <button type="button" className="btn btn-primary btn-sm">Cambiar Contraseña</button>
+                <button type="button" className="btn btn-dark w-100 borde">
+                  Cambiar Contraseña
+                </button>
               </>
             </div>
           </fieldset>
@@ -45,10 +48,10 @@ export const ProfileData = () => {
       </div>
       <div className="col-6 m-3 p-3">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+          <div className="container-fluid">
+            <Link className="navbar-brand" to="#">
               Eventos en proceso
-            </a>
+            </Link>
           </div>
         </nav>
         <div className="card p-4 justify-content-center textfont1">
@@ -65,8 +68,8 @@ export const ProfileData = () => {
             </div>
           </div>
           <div className="list-group">
-            <a
-              href="#"
+            <Link
+              to="#"
               className="list-group-item list-group-item-action"
               aria-current="true"
             >
@@ -76,7 +79,7 @@ export const ProfileData = () => {
               </div>
               <p className="mb-1">Inauguración Restaurant</p>
               <small>Ruhano Studio.</small>
-            </a>
+            </Link>
           </div>
           <br />
           <div className="progress">
@@ -91,8 +94,8 @@ export const ProfileData = () => {
             </div>
           </div>
           <div className="list-group">
-            <a
-              href="#"
+            <Link
+              to="#"
               className="list-group-item list-group-item-action"
               aria-current="true"
             >
@@ -102,21 +105,21 @@ export const ProfileData = () => {
               </div>
               <p className="mb-1">Grduación UCV</p>
               <small>Dj Step5.</small>
-            </a>
+            </Link>
           </div>
         </div>
         <br />
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+          <div className="container-fluid">
+            <Link className="navbar-brand" to="#">
               Eventos finalizados
-            </a>
+            </Link>
           </div>
         </nav>
 
         <div className="list-group">
-          <a
-            href="#"
+          <Link
+            to="#"
             className="list-group-item list-group-item-action active"
             aria-current="true"
           >
@@ -126,23 +129,23 @@ export const ProfileData = () => {
             </div>
             <p className="mb-1">Boda real</p>
             <small>Fotografía Studio.</small>
-          </a>
-          <a href="#" className="list-group-item list-group-item-action">
+          </Link>
+          <Link to="#" className="list-group-item list-group-item-action">
             <div className="d-flex w-100 justify-content-between">
               <h5 className="mb-1">Evento contratado</h5>
               <small className="text-muted">21 days ago</small>
             </div>
             <p className="mb-1">Grduación Medicina ULA.</p>
             <small className="text-muted">Dj Ann.</small>
-          </a>
-          <a href="#" className="list-group-item list-group-item-action">
+          </Link>
+          <Link to="#" className="list-group-item list-group-item-action">
             <div className="d-flex w-100 justify-content-between">
               <h5 className="mb-1">Evento contratado</h5>
               <small className="text-muted">1 month ago</small>
             </div>
             <p className="mb-1">Inauguración centro comercial</p>
             <small className="text-muted">Catering snacks.</small>
-          </a>
+          </Link>
           <br />
         </div>
       </div>
