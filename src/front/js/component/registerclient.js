@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
+import REG1 from "../../img/REG1.jpg";
 
 export const Registerclient = () => {
   const navigate = useNavigate();
@@ -127,12 +128,8 @@ export const Registerclient = () => {
                     )}
                   </form>
                 </div>
-                <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                    className="img-fluid"
-                    alt="Sample image"
-                  />
+                <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center text-center order-1 order-lg-2">
+                  <img src={REG1} className="img-fluid" alt="Sample image" />
                 </div>
               </div>
             </div>
