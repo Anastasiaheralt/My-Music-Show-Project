@@ -33,14 +33,14 @@ export const Home = () => {
   ];
 
   const photonames = [
-    "Maria Teresa Monasterios",
+    "María Teresa Monasterios",
     "Orlando Navas",
-    "Edwing Castillo",
-    "Danner Baron",
+    "Edwin Castillo",
+    "Danner Barón",
   ];
 
   const locationnames = [
-    "La Estancia de Bolivar",
+    "La Estancia de Bolívar",
     "Ara Merú Lodge",
     "Hotel Humboldt",
     "Bora La Mar",

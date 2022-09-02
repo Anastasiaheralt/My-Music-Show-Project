@@ -31,7 +31,7 @@ export const Registerprovider = () => {
             <div className="card-body p-md-5 border border-0">
               <div className="row justify-content-center">
                 <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                  <h2 className="text-center mb-4">Registro Proveedor</h2>
+                  <h2 className="text-center mb-4">Registro para proveedores</h2>
 
                   <form
                     className="mx-1 mx-md-4"
@@ -97,7 +97,7 @@ export const Registerprovider = () => {
                         )}
                         {errors.password?.type === "minLength" && (
                           <p className="text-danger mx-auto">
-                            La contraseña debe tener un minimo de 8 caracteres
+                            La contraseña debe tener un mínimo de 8 caracteres
                           </p>
                         )}
                       </div>
@@ -115,8 +115,8 @@ export const Registerprovider = () => {
                             <option value="Selecciona el Servicio...">
                               Selecciona el Servicio...
                             </option>
-                            <option value="musica">Musica</option>
-                            <option value="fotografia">Fotografia</option>
+                            <option value="musica">Música</option>
+                            <option value="fotografia">Fotografía</option>
                             <option value="locaciones">Locaciones</option>
                             <option value="catering">Catering</option>
                           </select>
@@ -136,7 +136,7 @@ export const Registerprovider = () => {
                         htmlFor="form2Example327"
                       >
                         Confirmo y acepto los
-                        <Link to="/terms"> Terminos y condiciones</Link>
+                        <Link to="/terms"> Términos y condiciones</Link>
                       </label>
                     </div>
                     {activarRegistro && (
