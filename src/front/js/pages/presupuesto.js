@@ -8,7 +8,7 @@ export const Presupuesto = () => {
         <form
           className="mx-1 mx-md-4"
           id="fs-frm"
-          name="department-contact-form"
+          name="Presupuestos My Music Show"
           accept-charset="utf-8"
           action="https://formspree.io/f/mdojkwvy"
           method="post"
@@ -29,16 +29,16 @@ export const Presupuesto = () => {
             <input
               className="form-control m-2 btbr"
               type="email"
-              name="_replyto"
+              name="De:"
               id="email-address"
-              placeholder="email@domain.tld"
+              placeholder="email@domain.com"
               required=""
             />
 
-            <label for="telefono">Teléfono</label>
+            <label for="Teléfono">Teléfono</label>
             <input
               className="form-control m-2 btbr"
-              placeholder="telefono"
+              placeholder="teléfono"
               type="text"
               name="telefono"
               id="telefono"
@@ -50,7 +50,7 @@ export const Presupuesto = () => {
 
             <label for="Departmento">Servicio</label>
             <select
-              name="department"
+              name="departmento"
               id="department"
               required=""
               className="form-control m-2 btbr"
@@ -63,35 +63,27 @@ export const Presupuesto = () => {
               >
                 Selecciona Servicio
               </option>
-              <option value="Musica" className="form-control m-2 btbr">
+              <option value="Música" className="form-control m-2 btbr">
                 Música
               </option>
               <option value="Catering" className="form-control m-2 btbr">
                 Catering
               </option>
-              <option
-                value="Fotografia"
-                className="form-control m-2 btbr"
-              >
+              <option value="Fotografía" className="form-control m-2 btbr">
                 Fotografía
               </option>
-              <option
-                value="Locaciones"
-                className="form-control m-2 btbr"
-              >
+              <option value="Locaciones" className="form-control m-2 btbr">
                 Locaciones
               </option>
             </select>
-            <div className="mb-3 justify-content-center textfont1">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Mensaje
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
+            <label for="message">Mensaje</label>
+            <textarea
+              className="form-control m-2 btbr"
+              rows="5"
+              name="mensaje"
+              id="message"
+              required=""
+            ></textarea>
             <input
               type="hidden"
               name="_subject"
@@ -105,7 +97,7 @@ export const Presupuesto = () => {
               value="Solicitar Presupuesto"
               className="mt-3 btn btn-dark w-80 btbr"
             />
-          </div>
+          </div>{" "}
         </form>
       </div>
     </>
