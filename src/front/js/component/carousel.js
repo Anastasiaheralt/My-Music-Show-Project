@@ -48,19 +48,15 @@ export const Carousel = () => {
               <img src={CARO1} className="w-100 qlq" alt="1" />
             </div>
             <div className="carousel-caption bc d-none d-md-block">
-              <h1>Todo lo que necesitas</h1>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
+              <h1>Encuentra todo lo que necesitas para tu Evento!</h1>
+              <p>¡El fotografo ideal al alcance de un click!</p>
             </div>
           </div>
           <div className="carousel-item justify-content-center">
             <img src={CARO2} className="d-block w-100" alt="2" />
             <div className="carousel-caption bc d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
+              <h5></h5>
+              <p>¡Tu directorio de proveedores!</p>
             </div>
           </div>
           <div className="carousel-item justify-content-center">
